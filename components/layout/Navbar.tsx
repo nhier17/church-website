@@ -67,7 +67,7 @@ export function Navbar() {
                   ))}
                 </div>
       
-                <Button
+                <button
                   onClick={toggleMenu}
                   className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
                   aria-label="Toggle menu"
@@ -77,7 +77,7 @@ export function Navbar() {
                   ) : (
                     <Menu className={cn('h-6 w-6', scrolled ? 'text-foreground' : 'text-white')} />
                   )}
-                </Button>
+                </button>
               </div>
       
               {isOpen && (

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -14,6 +15,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Nairobi Baptist Church",
   description: "A family that prays together, stands together",
+  icons: {
+    icon: "images/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +33,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Toaster position="top-right" richColors />
+        <Footer />
       </body>
     </html>
   );

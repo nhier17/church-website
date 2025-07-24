@@ -136,6 +136,51 @@ body {
   }
 }
 
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  
+  .heading-2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+  
+  .heading-3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+  
+  .heading-4 {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+  }
+  
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+  
+  .body-regular {
+    @apply text-base leading-relaxed;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600;
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 to-amber-600 bg-clip-text text-transparent;
+  }
+  
+  .card-shadow {
+    @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+}
+
 @layer components {
   .root-container {
     @apply flex min-h-screen w-full flex-1 flex-col px-5  md:px-16 mx-auto max-w-7xl;
