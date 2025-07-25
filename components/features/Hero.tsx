@@ -14,17 +14,20 @@ const Hero = () => {
     useGSAP(() => {
       if (contentRef.current) {
         const timeline = gsap.timeline();
-        
+
+        // Create a smoother, more sophisticated animation sequence
         timeline
           .from(contentRef.current.children, {
-            duration: 1,
-            y: 60,
+            duration: 1.2,
+            y: 40,
             opacity: 0,
-            stagger: 0.2,
-            ease: 'power3.out'
+            scale: 0.95,
+            stagger: 0.15,
+            ease: 'power2.out',
+            clearProps: 'all' // Ensures better performance after animation completes
           });
       }
-    });
+    }, { scope: contentRef });
 
   return (
     <section 
@@ -33,39 +36,29 @@ const Hero = () => {
       style={{ backgroundImage: `url(https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg)` }}
     >
       <div className="absolute inset-0 bg-black/40" />
-      
+
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div ref={contentRef}>
             <p className="text-lg md:text-xl text-blue-200 mb-4 font-medium">
            Noonkopir Bible Baptist Church
           </p>
-          
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Welcome Home!
           </h1>
-          
+
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
           Join our loving community where faith comes alive, friendships are formed, and everyone belongs. Experience the transformative power of God's love every Sunday.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
               asChild
             >
-              <Link href="#">Plan your visit</Link>
+              <Link href="#">Learn More</Link>
             </Button>
-            
-            <Button 
-                size="lg" 
-                variant="outline" 
-                asChild
-                className="text-black"
-              >
-                <Link href="#">Watch Online</Link>
-              </Button>
-            
           </div>
         </div>
       </div>

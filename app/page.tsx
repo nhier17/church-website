@@ -4,6 +4,7 @@ import ServiceTimes from "@/components/features/ServiceTimes";
 import CoreValues from "@/components/features/CoreValues";
 import Events from "@/components/features/Events";
 import CTA from "@/components/features/CTA";
+import Leaders from "@/components/features/Leaders";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <section className="root-container">
         <ServiceTimes />
+        <Leaders />
         <About />
         <CoreValues />  
         <Events />  

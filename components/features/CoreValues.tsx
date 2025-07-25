@@ -15,22 +15,29 @@ const CoreValues = () => {
     useGSAP(() => {
         if (featuresRef.current) {
             gsap.fromTo(featuresRef.current.children,
-              { y: 60, opacity: 0 },
+              { 
+                y: 40, 
+                opacity: 0,
+                scale: 0.95
+              },
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: 'power3.out',
+                scale: 1,
+                duration: 1,
+                stagger: 0.15,
+                ease: 'power2.out',
+                clearProps: 'all', // Ensures better performance after animation completes
                 scrollTrigger: {
                   trigger: featuresRef.current,
-                  start: 'top 85%',
-                  toggleActions: 'play none none reverse'
+                  start: 'top 80%', // Trigger slightly earlier for a smoother experience
+                  toggleActions: 'play none none reverse',
+                  once: false // Allow animation to replay when scrolling back up
                 }
               }
             );
           }
-    });
+    }, { scope: featuresRef });
   return (
     <section className="section-padding">
       <div className="text-center mb-12">

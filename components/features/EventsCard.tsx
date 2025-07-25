@@ -24,24 +24,28 @@ const EventsCard = ({ event }: EventCardProps) => {
       if (cardRef.current) {
         gsap.fromTo(cardRef.current, 
           { 
-            y: 60, 
-            opacity: 0 
+            y: 40, 
+            opacity: 0,
+            scale: 0.95
           },
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            ease: 'power3.out',
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out',
+            clearProps: 'all', // Ensures better performance after animation completes
             scrollTrigger: {
               trigger: cardRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
+              start: 'top 80%', // Trigger slightly earlier for a smoother experience
+              toggleActions: 'play none none reverse',
+              once: false // Allow animation to replay when scrolling back up
             }
           }
         );
       }
-    }, []);
-  
+    }, { scope: cardRef });
+
   return (
     <div ref={cardRef} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
 
@@ -59,16 +63,16 @@ const EventsCard = ({ event }: EventCardProps) => {
             </Badge>
           </div>
         </div>
-      
+
       <div className="p-6 bg-white shadow-lg rounded-b-lg">
         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
           {event.title}
         </h3>
-        
+
         <p className="text-gray-600 mb-4 leading-relaxed">
           {event.description}
         </p>
-        
+
         <div className="space-y-2 text-sm text-gray-500">
           <div className="flex items-center space-x-2">
             <Calendar className="h-4 w-4" />

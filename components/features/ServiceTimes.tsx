@@ -14,18 +14,27 @@ const ServiceTimes = () => {
 
     useGSAP(() => {
       if (statsRef.current) {
-        const timeline = gsap.timeline();
-        
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: 'top 80%', // Trigger when the top of the element reaches 80% from the top of viewport
+            toggleActions: 'play none none reverse',
+            once: false // Allow animation to replay when scrolling back up
+          }
+        });
+
         timeline
           .from(statsRef.current.children, {
             duration: 1,
-            y: 60,
+            y: 40,
             opacity: 0,
-            stagger: 0.2,
-            ease: 'power3.out'
+            scale: 0.95,
+            stagger: 0.15,
+            ease: 'power2.out',
+            clearProps: 'all' // Ensures better performance after animation completes
           });
       }
-    });
+    }, { scope: statsRef });
 
   return (
     <section className="section-padding">
@@ -36,23 +45,15 @@ const ServiceTimes = () => {
           </div>
 
           <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-0">
                 <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">9:00 AM</h3>
-                <p className="text-gray-600">Bible School Service</p>
+                <p className="text-gray-600">Sunday School Services</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">10:00 AM</h3>
-                <p className="text-gray-600">Children's Service</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-0">
                 <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">11:00 AM</h3>
