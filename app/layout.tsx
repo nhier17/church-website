@@ -13,7 +13,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Nairobi Baptist Church",
+  title: "Noonkopir Bible Baptist Church",
   description: "A family that prays together, stands together",
   icons: {
     icon: "images/logo.png",
