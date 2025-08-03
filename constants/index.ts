@@ -68,3 +68,22 @@ export const upcomingEvents: EventData[] = [
         registrationUrl: '/contact'
       }
 ];  
+
+export const leaders = [
+  {
+    name: "Jerry Novak",
+    position: "Pastor",
+    image:
+      "/images/leader.JPG",
+    bio: "Jerry is passionate about community and spiritual growth. He has been serving for over 15 years.",
+    email: "info@nbbchurch.com",
+  },
+  {
+    name: "Pastor Andrew",
+    position: "Pastor",
+    image:
+      "/images/leader1.JPG",
+    bio: "Andrew supports outreach programs and youth development across the church.",
+    email: "info@nbbchurch.com",
+  },
+];
