@@ -15,12 +15,14 @@ const About = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-        <div>
-          <div className="relative">
-            <img
+        <div className="overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
               src="/images/about.JPG"
               alt="Church community worship"
-              className="rounded-lg shadow-xl"
+              width={500}
+              height={500}
+              className="object-cover rounded-lg shadow-xl"
             />
             <div className="absolute -bottom-6 -right-6 bg-green-100 text-white p-6 rounded-lg shadow-lg">
               <div className="text-center">
@@ -30,7 +32,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="overflow-x-hidden">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             A Place Where Everyone Belongs
           </h3>
