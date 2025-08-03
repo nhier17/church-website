@@ -47,8 +47,8 @@ export const upcomingEvents: EventData[] = [
       {
         id: 2,
         title: 'Choir Practice',
-        date: '2025-03-08',
-        time: 'After Service',
+        date: '2025-08-24',
+        time: '1:00 PM - 3:00 PM',
         location: 'Main Building',
         description: 'Choir practice for the upcoming worship service.',
         category: 'Worship',
@@ -58,7 +58,7 @@ export const upcomingEvents: EventData[] = [
       {
         id: 3,
         title: 'Smite Youth Camp',
-        date: '2025-08-20',
+        date: '2025-11-30',
         time: '9:00 AM - 3:00 PM',
         location: 'Heritage Baptist Church',
         description: 'A weekend for teenagers to grow in faith, build friendships.',
