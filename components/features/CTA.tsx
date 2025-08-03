@@ -13,10 +13,7 @@ const CTA = () => {
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-          <Link href="/visit">Plan a Visit</Link>
-        </Button>
-        <Button variant="outline" asChild size="lg">
+        <Button variant="outline" asChild size="lg" className="bg-green-100 text-white hover:bg-green-900">
           <Link href="/contact">Get Connected</Link>
         </Button>
       </div>

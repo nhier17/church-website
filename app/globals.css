@@ -16,6 +16,8 @@
   --color-badge-red-text: #752522;
   --color-badge-yellow-text: #73321b;
 
+  --color-green-100: #007F6E;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-inter: var(--font-inter);
@@ -187,6 +189,9 @@ body {
   }
   .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
 }
 

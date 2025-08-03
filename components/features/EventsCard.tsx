@@ -1,54 +1,16 @@
-"use client";
-
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getCategoryColor } from "@/lib/utils";
 
-gsap.registerPlugin(ScrollTrigger);
-
 interface EventCardProps {
     event: EventData;
 }
 
 const EventsCard = ({ event }: EventCardProps) => {
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(() => {
-      if (cardRef.current) {
-        gsap.fromTo(cardRef.current, 
-          { 
-            y: 40, 
-            opacity: 0,
-            scale: 0.95
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: 'power2.out',
-            clearProps: 'all', // Ensures better performance after animation completes
-            scrollTrigger: {
-              trigger: cardRef.current,
-              start: 'top 80%', // Trigger slightly earlier for a smoother experience
-              toggleActions: 'play none none reverse',
-              once: false // Allow animation to replay when scrolling back up
-            }
-          }
-        );
-      }
-    }, { scope: cardRef });
-
   return (
-    <div ref={cardRef} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-
+    <div className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
         <div className="relative overflow-hidden rounded-t-lg w-full h-64">
           <Image
             src={event.imageUrl}
@@ -89,7 +51,7 @@ const EventsCard = ({ event }: EventCardProps) => {
         </div>
         <div className="pt-4">
         {event.registrationUrl && (
-          <Button className="w-full bg-blue-600 hover:bg-blue-700" asChild>
+          <Button className="w-full bg-green-100 hover:bg-green-900" asChild>
             <a href={event.registrationUrl}>
               Register Now
               <ExternalLink className="h-4 w-4 ml-2" />

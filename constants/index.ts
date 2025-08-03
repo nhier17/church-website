@@ -14,10 +14,9 @@ export const navlinks = [
 export const footerLinks = {
 quickLinks: [
     { title: 'About Us', href: '/about' },
-    { title: 'Visit Us', href: '/visit' },
-    { title: 'Sermons', href: '/sermons' },
-    { title: 'Events', href: '/events' },
     { title: 'Ministries', href: '/ministries' },
+    { title: 'Missions', href: '/missions' },
+    { title: 'Events', href: '/events' },
     { title: 'Giving', href: '/giving' },
     { title: 'Contact', href: '/contact' }
 ],
@@ -37,34 +36,34 @@ contactLinks: [
 export const upcomingEvents: EventData[] = [
     {
         id: 1,
-        title: 'Kids Visit to Giraffe Center',
-        date: '2024-12-24',
+        title: 'Kids Game Day',
+        date: '2025-08-24',
         time: '7:00 PM',
-        location: 'Giraffe Center',
+        location: 'Church Grounds',
         description: 'A fun-filled weekend for kids to tour the giraffe center ',
-        category: 'Worship',
-        imageUrl: 'https://i.pinimg.com/736x/42/cf/03/42cf03aa83b34e40a8f0c91430638d72.jpg',
+        category: 'Teens',
+        imageUrl: '/images/kids.jpg',
         registrationUrl: '/contact'
       },
       {
         id: 2,
         title: 'Choir Practice',
-        date: '2025-01-15',
-        time: '6:00 PM - 8:00 PM',
-        location: 'Youth Center',
+        date: '2025-03-08',
+        time: 'After Service',
+        location: 'Main Building',
         description: 'Choir practice for the upcoming worship service.',
-        category: 'Youth',
-        imageUrl: 'https://i.pinimg.com/736x/d9/88/ba/d988ba26a7def19746f5635cf7c2a686.jpg',
+        category: 'Worship',
+        imageUrl: '/images/choir.JPG',
         registrationUrl: '/contact'
       },
       {
         id: 3,
-        title: 'Youth Camping',
-        date: '2025-01-20',
+        title: 'Smite Youth Camp',
+        date: '2025-08-20',
         time: '9:00 AM - 3:00 PM',
-        location: 'Church Parking Lot',
-        description: 'A fun-filled weekend for teenagers to grow in faith, build friendships.',
-        category: 'Outreach',
+        location: 'Heritage Baptist Church',
+        description: 'A weekend for teenagers to grow in faith, build friendships.',
+        category: 'Youth',
         imageUrl: 'https://i.pinimg.com/1200x/1b/62/3e/1b623ebde1130f3aafe8d92cc75841e5.jpg',
         registrationUrl: '/contact'
       }
