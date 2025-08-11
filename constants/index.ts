@@ -32,6 +32,55 @@ contactLinks: [
 ]
 };
 
+export const faqs = [
+    {
+        question: 'What time are the church services?',
+        answer: 'Our main worship service is held every Sunday at 11:00 AM. We also have Sunday school at 10:00 AM.'
+    },
+    {
+        question: 'Do I need to be a member to attend services?',
+        answer: 'No. Everyone is welcome to attend our services and events regardless of membership.'
+    },
+    {
+        question: 'Do you have children’s ministry?',
+        answer: 'Yes! We have Sunday School for children of all ages during the main service, as well as special youth programs throughout the week.'
+    },
+    {
+        question: 'Do you offer counseling or prayer support?',
+        answer: 'Yes, we offer counseling and prayer support to our members and community.'
+    },
+    {
+        question: 'How can I get Involved?',
+        answer: 'There are many opportunities to serve — children’s ministry, community service. Speak to one of our leaders after service to learn more.'
+    },
+    {
+      question: 'Do you livestream services?',
+      answer: 'Not at the moment, we plan to livestream our services on our YouTube channel.'
+    },
+    {
+      question: 'Is there parking available?',
+      answer: 'Yes, we have parking available for our members and visitors.'
+    }
+];
+
+export const addressInfo = [
+    {
+        icon: '/icons/map.svg',
+        title: 'Church Location',
+        details: 'Noonkopir, Kitengela'
+    },
+    {
+        icon: '/icons/phone.svg',
+        title: 'Phone',
+        details: '0797 123 456'
+    },
+    {
+        icon: '/icons/mail.svg',
+        title: 'Email',
+        details: 'info@nbbc.co.ke'
+    }
+];
+
 export const upcomingEvents: EventData[] = [
     {
         id: 1,

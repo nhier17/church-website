@@ -16,7 +16,16 @@
   --color-badge-red-text: #752522;
   --color-badge-yellow-text: #73321b;
 
+  --color-dark-100: #0D0F10;
+  --color-dark-200: #0D0F10;
+  --color-dark-300: #131619;
+  --color-dark-400: #1A1D21;
+  --color-dark-500: #363A3D;
+  --color-dark-600: #76828D;
+
   --color-green-100: #007F6E;
+
+  --color-light-100: #D6E0FF;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -192,6 +201,29 @@ body {
   }
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .field-input {
+    @apply w-full bg-white px-5 py-2 min-h-14 rounded-lg placeholder:text-light-100 text-lg text-dark-100 shadow-dark-200 shadow-2xl focus:outline-none;
+  }
+
+  .field-textarea {
+    @apply bg-background placeholder:text-gray-600 border-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
+
+  .field-label {
+    @apply text-lg text-dark-100;
+  }
+
+  .field-btn {
+    @apply bg-green-700 w-full px-5 py-2 min-h-12 rounded-lg shadow-dark-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+  }
+  .shad-select-trigger {
+    @apply bg-dark-400  placeholder:text-dark-600 border-dark-500 w-full h-11 focus:ring-0 focus:ring-offset-0;
+  }
+
+  .shad-select-content {
+    @apply bg-dark-400 border-dark-500 w-full;
   }
 }
 
