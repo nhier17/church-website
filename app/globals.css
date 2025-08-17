@@ -4,9 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-dark-200: #475467;
+  --color-primary: #1E3A8A;
   --color-light-blue-100: #c1d3f81a;
   --color-light-blue-200: #a7bff14d;
+  --color-light-100: #D6E0FF;
 
   --color-badge-green: #d5faf1;
   --color-badge-red: #f9e3e2;
@@ -54,7 +55,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);

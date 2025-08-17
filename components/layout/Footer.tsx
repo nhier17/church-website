@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Footer() {
     const { quickLinks, socialLinks, contactLinks } = footerLinks;
     return (
-        <footer className="bg-[#020013] text-white">
+        <footer className="bg-green-100 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 lg:col-span-2">
@@ -64,11 +64,11 @@ export function Footer() {
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Noonkopir Bible Baptist Church. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <div className="flex space-x-6 mt-4 md:mt-0 text-light-100">
+              <Link href="/privacy" className="hover:text-white text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link href="/terms" className="hover:text-white text-sm transition-colors">
                 Terms of Service
               </Link>
             </div>

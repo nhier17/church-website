@@ -4,12 +4,13 @@ import { Card, CardContent } from "../ui/card";
 import { Mail,ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { leaders } from "@/constants";
+import { Badge } from "../ui/badge";
 
 const Leaders = () => {
   return (  
     <section className="section-padding">
       <div className="text-center mb-16">
-        <h2 className="heading-2">Meet Our Leadership</h2>
+        <h2 className="heading-2">Meet Our Pastors</h2>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -29,9 +30,7 @@ const Leaders = () => {
               <div className="p-6 text-center">
                 <div className="mb-4">
                   <h4 className="text-xl font-bold text-foreground mb-2">{leader.name}</h4>
-                  <div className="inline-flex items-center px-3 py-1 bg-green-50 rounded-full">
-                    <span className="text-green-100 font-semibold text-sm">{leader.position}</span>
-                  </div>
+                  <Badge className="bg-green-50 text-green-100 font-semibold text-sm">{leader.position}</Badge>
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">

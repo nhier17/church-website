@@ -8,4 +8,5 @@ interface EventData {
     category: string;
     imageUrl: string;
     registrationUrl?: string;
+    eventType?: string;
 }

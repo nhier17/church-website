@@ -39,12 +39,12 @@ export function Navbar() {
                 <Link href="/" className="flex items-center space-x-3">
                   <Image
                     src="/images/logo.png"
-                    alt="Grace Church Logo"
+                    alt="Noonkopir Bible Baptist Church Logo"
                     width={50}
                     height={50}
                   />
                   <div className="hidden sm:block">
-                    <h1 className="text-xl font-bold text-primary">NBBC</h1>
+                    <h1 className="text-xl font-bold text-green-100">NBBC</h1>
                   </div>
                 </Link>
       
@@ -54,9 +54,9 @@ export function Navbar() {
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        'text-base font-medium transition-colors hover:text-primary',
+                        'text-base font-medium transition-colors hover:text-green-100',
                         pathname === item.href
-                          ? 'text-primary'
+                          ? 'text-green-100'
                           : scrolled
                           ? 'text-foreground'
                           : 'text-white hover:text-accent'
@@ -69,7 +69,7 @@ export function Navbar() {
       
                 <button
                   onClick={toggleMenu}
-                  className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                  className="lg:hidden p-2 rounded-lg hover:bg-green-100/10 transition-colors"
                   aria-label="Toggle menu"
                 >
                   {isOpen ? (
@@ -89,9 +89,9 @@ export function Navbar() {
                         href={item.href}
                         onClick={toggleMenu}
                         className={cn(
-                          'block px-6 py-3 text-base font-medium transition-colors hover:bg-primary/5 hover:text-primary',
+                          'block px-6 py-3 text-base font-medium transition-colors hover:bg-green-100/5 hover:text-green-100',
                           pathname === item.href
-                            ? 'text-primary bg-primary/5'
+                            ? 'text-green-100 bg-green-100/5'
                             : 'text-foreground'
                         )}
                       >
