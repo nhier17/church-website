@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, BookOpen, Heart, Users } from 'lucide-react';
 
 export const navlinks = [
     { title: 'Home', href: '/' },
@@ -241,3 +241,87 @@ export const salvationSteps = {
     }
   ]
 };
+
+export const ministries = [
+  {
+    id: '1',
+    name: 'SS Kids Ministry',
+    description: 'A fun and safe environment where children learn about Jesus through engaging activities, Bible stories, crafts, and games that are tailored to their age group.',
+    targetAudience: 'Ages 0-12',
+    meetingTime: 'Sundays 10:00 AM',
+    location: 'Classroom',
+    imageUrl: '/images/ssclass.jpeg'
+  },
+  {
+    id: '2',
+    name: 'SS Adults Ministry',
+    description: 'Bible-centered classes designed for adults to deepen their knowledge of Scripture, strengthen their faith, and grow in fellowship with one another.',
+    targetAudience: 'Adults 18+',
+    meetingTime: 'Sundays 10:00 AM',
+    location: 'Classroom',
+    imageUrl: '/images/ssadults.JPG'
+  },
+  {
+    id: '3',
+    name: 'Missions & Evangelism Ministry',
+    description: 'Carrying the message of Christ beyond the church walls through local outreach, evangelism, and international missions.',
+    targetAudience: 'All ages',
+    meetingTime: 'Various times',
+    location: 'Tanzania, South Sudan',
+    imageUrl: '/images/missions.jpg'
+  },
+  {
+    id: '4',
+    name: 'Worship Ministry',
+    description: 'Leading the congregation in heartfelt worship through music, instruments, and media, creating an atmosphere where people can encounter God’s presence.',
+    targetAudience: 'All ages',
+    meetingTime: 'Every Sunday',
+    location: 'Main Building',
+    imageUrl: '/images/choir.JPG'
+  },
+  {
+    id: '5',
+    name: 'Choir Ministry',
+    description: 'A dedicated team of singers who lift their voices in harmony to glorify God and inspire the congregation through special music and worship services.',
+    targetAudience: 'All ages',
+    meetingTime: 'Every Sunday after service',
+    location: 'Main Building',
+    imageUrl: '/images/choir1.JPG'
+  }
+];
+
+
+export const ageGroups = [
+  {
+    id: 1,
+    title: "Primary SS",
+    description: "Nursery, preschool, and elementary programs",
+    icon: Users,
+    bgColor: "bg-purple-100",
+    iconColor: "text-purple-600",
+  },
+  {
+    id: 2,
+    title: "Junior SS",
+    description: "Teen programs, camps, and discipleship",
+    icon: Heart,
+    bgColor: "bg-green-50",
+    iconColor: "text-green-100",
+  },
+  {
+    id: 3,
+    title: "Teens SS",
+    description: "Bible studies, small groups, and classes",
+    icon: BookOpen,
+    bgColor: "bg-blue-50",
+    iconColor: "text-blue-600",
+  },
+  {
+    id: 4,
+    title: "Adults SS",
+    description: "Fellowship, Bible study, and service opportunities",
+    icon: Heart,
+    bgColor: "bg-orange-100",
+    iconColor: "text-orange-600",
+  },
+];

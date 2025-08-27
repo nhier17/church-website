@@ -9,4 +9,14 @@ interface EventData {
     imageUrl: string;
     registrationUrl?: string;
     eventType?: string;
+};
+
+interface Ministry {
+    id: string;
+    name: string;
+    description: string;
+    targetAudience: string;
+    meetingTime: string;
+    location: string;
+    imageUrl: string;
 }

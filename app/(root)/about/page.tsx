@@ -20,6 +20,8 @@ const splideOptions = {
   arrows: true,
   pagination: true,
   gap: '1rem',
+  focus: 'center',
+  perPage: 1,
   breakpoints: {
     768: {
       arrows: false,
@@ -64,7 +66,7 @@ const About = () => {
               <div className="relative">
                 <Splide
                   options={splideOptions}
-                  className="rounded-lg overflow-hidden shadow-lg"
+                  className="p-0 rounded-lg overflow-hidden"
                 >
                   {ourStory.map((story, index) => (
                     <SplideSlide key={index}>
