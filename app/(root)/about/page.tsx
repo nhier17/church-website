@@ -32,13 +32,21 @@ const splideOptions = {
 const About = () => {
   return (
     <section className="section-padding">
-      <section className="section-padding bg-green-100 text-primary-foreground">
-        <div className="container-custom text-center">
-          <h1 className="heading-3 mb-6">About Noonkopir Bible Baptist Church</h1>
-          <p className="text-large max-w-3xl mx-auto text-primary-foreground/90">
-            We are a community of believers passionate about knowing Christ, 
-            growing in faith, and serving others with the love of Jesus.
+
+      <section className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(/images/hero.JPG)` }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <h1 className="heading-2 mb-6">
+            About Noonkopir Bible Baptist Church
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Discover our heart, our story, and the people who make our church family special. We're more than a church - we're a community united by God's love.
           </p>
+
         </div>
       </section>
 
