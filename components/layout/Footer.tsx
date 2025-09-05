@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-2">
                 {quickLinks.map((link, index) => (
                     <li key={index}>
-                        <Link href={link.href} className="text-gray-300 hover:text-white transition-colors">
+                        <Link href={link.href} className="text-primary-foreground/80 hover:text-accent transition-color">
                             {link.title}
                         </Link>
                     </li>
@@ -48,8 +48,8 @@ export function Footer() {
                   const Icon = link.icon;
                     return (
                     <div key={index} className="flex items-start space-x-3">
-                        <Icon className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">
+                        <Icon className="h-5 w-5 text-white mt-0.5 flex-shrink-0" />
+                        <span className="text-primary-foreground/80">
                             {link.title}
                         </span>
                     </div>
@@ -59,9 +59,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="ext-primary-foreground/60">
               © {new Date().getFullYear()} Noonkopir Bible Baptist Church. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0 text-light-100">

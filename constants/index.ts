@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, BookOpen, Heart, Users } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, BookOpen, Heart, Users, Globe, Gift, Church } from 'lucide-react';
 
 export const navlinks = [
     { title: 'Home', href: '/' },
@@ -28,7 +28,7 @@ socialLinks: [
 contactLinks: [
     { title: 'Noonkopir, Kitengela', icon: MapPin},
     { title: '0711 483 287/ 0722 955 571', icon: Phone },
-    { title: 'noonkopir.bbc@gmail.com', icon: Mail },
+    { title: 'info.noonkopirbbc@gmail.com', icon: Mail },
 ]
 };
 
@@ -77,7 +77,7 @@ export const addressInfo = [
     {
         icon: '/icons/mail.svg',
         title: 'Email',
-        details: 'noonkopir.bbc@gmail.com'
+        details: 'info.noonkopirbbc@gmail.com'
     }
 ];
 
@@ -259,7 +259,7 @@ export const ministries = [
     targetAudience: 'Adults 18+',
     meetingTime: 'Sundays 10:00 AM',
     location: 'Classroom',
-    imageUrl: '/images/ssadults.JPG'
+    imageUrl: '/images/adults.JPG'
   },
   {
     id: '3',
@@ -290,6 +290,13 @@ export const ministries = [
   }
 ];
 
+export const givingCategories = [
+  { id: 'tithe', name: 'Tithe & Offerings', description: 'Regular church support' },
+  { id: 'missions', name: 'Missions', description: 'Global outreach support' },
+  { id: 'youth', name: 'Youth Ministry', description: 'Youth programs and activities' },
+  { id: 'community', name: 'Community Outreach', description: 'Local community support' },
+  { id: 'other', name: 'Other', description: 'Special projects and needs' }
+];
 
 export const ageGroups = [
   {
@@ -324,4 +331,27 @@ export const ageGroups = [
     bgColor: "bg-orange-100",
     iconColor: "text-orange-600",
   },
+];
+
+export const whyWeGive = [
+  {
+    icon: Heart,
+    title: 'Act of Worship',
+    description: 'Giving expresses our gratitude and trust in God\'s provision.'
+  },
+  {
+    icon: Church,
+    title: 'Support Ministry',
+    description: 'Enables us to serve our community and spread the Gospel.'
+  },
+  {
+    icon: Users,
+    title: 'Help Others',
+    description: 'Supports those in need in our community and around the world.'
+  },
+  {
+    icon: Globe,
+    title: 'Advance Kingdom',
+    description: 'Helps fulfill the Great Commission locally and globally.'
+  }
 ];

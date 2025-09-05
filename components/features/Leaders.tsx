@@ -33,18 +33,6 @@ const Leaders = () => {
                   <Badge className="bg-green-50 text-green-100 font-semibold text-sm">{leader.position}</Badge>
                 </div>
                 
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {leader.bio.substring(0, 120)}...
-                </p>
-                
-                {leader.email && (
-                  <Button variant="outline" size="sm" className="group" asChild>
-                    <Link href={`mailto:${leader.email}`}>
-                      <Mail className="h-4 w-4 mr-2 group-hover:text-green-100 transition-colors" />
-                      Contact
-                    </Link>
-                  </Button>
-                )}
               </div>
             </CardContent>
           </Card>

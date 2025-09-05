@@ -22,7 +22,7 @@ const MinistryCard = ({ ministry, icon, onLearnMore }: MinistryCardProps) => {
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
         </div>
-
+      
         <div className="p-6 bg-white shadow-lg rounded-b-lg">
         <h3 className="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors">
           {ministry.name}

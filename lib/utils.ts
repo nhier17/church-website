@@ -2,6 +2,7 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { Users, Heart, BookOpen, Music, Home, HandHeart } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -30,3 +31,14 @@ export const getMinistryIcon = (ministryName: string): LucideIcon => {
     default: return Users;
   }
 };
+
+export const givingSchema = z.object({
+  amount: z.string().min(1, 'Amount is required').refine(
+    (val) => !isNaN(Number(val)) && Number(val) > 0,
+    'Amount must be a positive number'
+  ),
+  frequency: z.enum(['one-time', 'weekly', 'monthly']),
+  category: z.string().min(1, 'Please select a category'),
+  paymentMethod: z.enum(['mpesa', 'bank']),
+});
+

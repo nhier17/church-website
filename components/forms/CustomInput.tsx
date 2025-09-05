@@ -9,11 +9,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Control } from 'react-hook-form';
 import { Select, SelectContent, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 export enum FormFieldType {
     INPUT = 'input',
     TEXTAREA = 'textarea',
-    SELECT = 'select'
+    SELECT = 'select',
+    RADIO = 'radio'
 }
 
 interface CustomInputProps {
@@ -64,6 +66,19 @@ const RenderField = ({ field, props }: { field: any; props: CustomInputProps }) 
                 </Select>
               </FormControl>
             );
+            case FormFieldType.RADIO:
+                return (
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      className="space-y-2"
+                    >
+                      {props.children}
+                    </RadioGroup>
+                  </FormControl>
+                );
+              
         default:
             return null;
     }

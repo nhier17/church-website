@@ -1,7 +1,7 @@
 'use client';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { HeartHandshake, Award, Heart, Mail, Cross, ArrowRight } from 'lucide-react';
+import { HeartHandshake, Award, Heart, Mail, Cross } from 'lucide-react';
 import { leaders } from '@/constants';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
