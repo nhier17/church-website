@@ -15,6 +15,7 @@ import { RadioGroupItem } from "@/components/ui/radio-group";
 import { SelectItem } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { givingCategories } from "@/constants";
+import Image from "next/image";
 
 type FormData = z.infer<typeof givingSchema>;
 
@@ -112,19 +113,26 @@ const GivingForm = () => {
             </div>
           </TabsContent>
           
-          <TabsContent value="bank" className="space-y-4">
-            <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg">
-              <Building className="h-8 w-8 text-blue-600" />
-              <div>
-                <h4 className="font-semibold">Bank Transfer</h4>
-                <p className="text-sm text-muted-foreground">
-                  Account: Noonkopir Bible Baptist Church<br />
-                  Bank: Kenya Commercial Bank<br />
-                  Account No: 1234567890
-                </p>
-              </div>
-            </div>
-          </TabsContent>
+          <TabsContent value="bank" className="space-y-6">
+  <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg">
+    <Building className="h-8 w-8 text-blue-600" />
+    <div>
+      <h4 className="font-semibold">Bank Transfer</h4>
+      <p className="text-sm text-muted-foreground mb-2">
+        You can give directly via bank transfer using the details below.
+      </p>
+    </div>
+  </div>
+  <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
+    <Image 
+      src="/images/pay.jpg" 
+      alt="Bank details for Noonkopir Bible Baptist Church"
+      fill
+      className="object-contain bg-white"
+    />
+  </div>
+</TabsContent>
+
         </Tabs>
       </div>
 

@@ -142,7 +142,7 @@ export const leaders = [
     email: "info@nbbchurch.com",
   },
   {
-    name: "Pastor Andrew",
+    name: "Andrew Tsuma",
     position: "Pastor",
     image:
       "/images/leader1.JPG",
@@ -291,10 +291,8 @@ export const ministries = [
 ];
 
 export const givingCategories = [
-  { id: 'tithe', name: 'Tithe & Offerings', description: 'Regular church support' },
-  { id: 'missions', name: 'Missions', description: 'Global outreach support' },
-  { id: 'youth', name: 'Youth Ministry', description: 'Youth programs and activities' },
-  { id: 'community', name: 'Community Outreach', description: 'Local community support' },
+  { id: 'tithe', name: 'Tithe', description: 'Regular church support' },
+  { id: 'offering', name: 'Offering', description: 'Regular church support' },
   { id: 'other', name: 'Other', description: 'Special projects and needs' }
 ];
 

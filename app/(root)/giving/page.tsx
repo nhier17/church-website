@@ -101,7 +101,7 @@ const Giving = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Make a direct deposit to our church account at Kenya Commercial Bank. 
+                  Make a direct deposit to our church account at Equity Bank. 
                   Contact us for account details.
                 </p>
               </CardContent>
