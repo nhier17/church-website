@@ -82,10 +82,6 @@ const FloatingElement = ({ children, delay = 0 }: { children: React.ReactNode; d
 const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [storyRef, storyInView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [foundationRef, foundationInView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [beliefRef, beliefInView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [salvationRef, salvationInView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [leadershipRef, leadershipInView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -138,53 +134,6 @@ const About = () => {
     }
   }, [storyInView]);
 
-  useGSAP(() => {
-    if (foundationInView) {
-      gsap.from(".foundation-tab", {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out"
-      });
-    }
-  }, [foundationInView]);
-
-  useGSAP(() => {
-    if (beliefInView) {
-      gsap.from(".belief-card", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out"
-      });
-    }
-  }, [beliefInView]);
-
-  useGSAP(() => {
-    if (salvationInView) {
-      gsap.from(".salvation-step", {
-        x: -30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out"
-      });
-    }
-  }, [salvationInView]);
-
-  useGSAP(() => {
-    if (leadershipInView) {
-      gsap.from(".leader-card", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out"
-      });
-    }
-  }, [leadershipInView]);
 
   return (
     <div className="pt-16 overflow-hidden">
@@ -510,7 +459,7 @@ const About = () => {
           </Card>
       </section>
 
-      <section ref={leadershipRef} id="leadership" className="section-padding bg-gradient-to-br from-secondary/50 to-background">
+      <section id="leadership" className="section-padding bg-gradient-to-br from-secondary/50 to-background">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
             Our Leadership Team
