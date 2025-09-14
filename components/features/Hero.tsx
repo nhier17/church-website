@@ -129,21 +129,6 @@ const Hero = () => {
           <p className="italic text-sm md:text-base text-white/70">
             “Let everything that has breath praise the Lord.” – Psalm 150:6
           </p>
-
-          <div ref={buttonsRef} className="flex gap-4 pt-4">
-            <Link
-              href="/about"
-              className="px-6 py-3 bg-green-100 text-white font-semibold rounded-full shadow-lg hover:bg-green-100/80 transition"
-            >
-              About NBBC
-            </Link>
-            <Link
-              href="/giving"
-              className="px-6 py-3 border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition"
-            >
-              Give Now
-            </Link>
-          </div>
         </div>
 
         <div
@@ -159,6 +144,21 @@ const Hero = () => {
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>
+        
+        <div ref={buttonsRef} className="flex gap-4 pb-4">
+            <Link
+              href="/about"
+              className="px-6 py-3 bg-green-100 text-white font-semibold rounded-full shadow-lg hover:bg-green-100/80 transition"
+            >
+              About NBBC
+            </Link>
+            <Link
+              href="/giving"
+              className="px-6 py-3 border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition"
+            >
+              Give Now
+            </Link>
+          </div>
       </div>
     </section>
   );
