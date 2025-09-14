@@ -246,10 +246,10 @@ const Missions = () => {
       </section>
 
       <section className="section-padding">
-          <h2 className="heading-2 md:text-center text-start mb-6">Answer the Call</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
+          <h2 className="heading-2 md:text-center text-start mb-4">Answer the Call</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full mb-4" />
           <p className="text-large text-muted-foreground max-w-2xl mx-auto mb-8">
-            God is calling Grace Church to be part of His global mission. Whether through 
+            God is calling NBBC Church to be part of His global mission. Whether through 
             prayer, giving, or going, there's a place for you in this great work.
           </p>
           
