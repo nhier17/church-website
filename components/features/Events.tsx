@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { upcomingEvents } from "@/constants";
+import { events } from "@/constants";
 import EventsCard from "./EventsCard";
 
 const Events = () => {
@@ -14,7 +14,7 @@ const Events = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {upcomingEvents.map((event) => (
+            {events.map((event) => (
               <EventsCard key={event.id} event={event} />
             ))}
           </div>

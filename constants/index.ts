@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, BookOpen, Heart, Users, Globe, Gift, Church } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, BookOpen, Heart, Users, Globe, Gift, Church, Target } from 'lucide-react';
 
 export const navlinks = [
     { title: 'Home', href: '/' },
@@ -27,7 +27,7 @@ socialLinks: [
 ],
 contactLinks: [
     { title: 'Noonkopir, Kitengela', icon: MapPin},
-    { title: '0711 483 287/ 0722 955 571', icon: Phone },
+    { title: '0711 483 287/ 0722 955 570', icon: Phone },
     { title: 'info.noonkopirbbc@gmail.com', icon: Mail },
 ]
 };
@@ -72,7 +72,7 @@ export const addressInfo = [
     {
         icon: '/icons/phone.svg',
         title: 'Phone',
-        details: '0711 483 287/ 0722 955 571'
+        details: '0711 483 287/ 0722 955 570'
     },
     {
         icon: '/icons/mail.svg',
@@ -81,7 +81,7 @@ export const addressInfo = [
     }
 ];
 
-export const upcomingEvents: EventData[] = [
+export const events: EventData[] = [
     {
         id: 1,
         title: 'Kids Retreat',
@@ -92,7 +92,6 @@ export const upcomingEvents: EventData[] = [
         category: 'Teens',
         imageUrl: '/images/kids.jpg',
         registrationUrl: '/contact',
-        eventType: 'Passed',
       },
       {
         id: 2,
@@ -104,7 +103,6 @@ export const upcomingEvents: EventData[] = [
         category: 'Worship',
         imageUrl: '/images/choir.JPG',
         registrationUrl: '/contact', 
-        eventType: 'Active',
       },
       {
         id: 3,
@@ -116,7 +114,6 @@ export const upcomingEvents: EventData[] = [
         category: 'Youth',
         imageUrl: 'https://i.pinimg.com/1200x/1b/62/3e/1b623ebde1130f3aafe8d92cc75841e5.jpg',
         registrationUrl: '/contact', 
-        eventType: 'Active',
       },
       {
         id: 4,
@@ -128,7 +125,6 @@ export const upcomingEvents: EventData[] = [
         category: 'Youth',
         imageUrl: '/images/smite.jpg',
         registrationUrl: '/contact',
-        eventType: 'Upcoming',
       }
 ];  
 
@@ -139,7 +135,7 @@ export const leaders = [
     image:
       "/images/leader.JPG",
     bio: "Jerry is passionate about community and spiritual growth. He has been serving for over 15 years.",
-    email: "info@nbbchurch.com",
+    email: "info.noonkopirbbc@gmail.com",
   },
   {
     name: "Andrew Tsuma",
@@ -147,7 +143,7 @@ export const leaders = [
     image:
       "/images/leader1.JPG",
     bio: "Andrew supports outreach programs and youth development across the church.",
-    email: "info@nbbchurch.com",
+    email: "info.noonkopirbbc@gmail.com",
   },
 ];
 
@@ -241,6 +237,102 @@ export const salvationSteps = {
     }
   ]
 };
+
+export const whatWeBelieve = [
+  {
+    title: "Holy Scriptures",
+    paragraphs: [
+      "We believe that the Holy Bible, as originally written, was verbally inspired and the product of Spirit-controlled men, and therefore, is completely true, without error, in its content.",
+      "We believe the Bible to be the foundation upon which to establish Christian relationships, and the Supreme standard by which our thoughts and actions are to be tested."
+    ],
+    verses: ["II Timothy 3:16-17", "II Peter 1:19-20"],
+    gradient: "from-blue-500/10 to-blue-600/5",
+    border: "border-blue-500"
+  },
+  {
+    title: "Godhead and the Trinity",
+    paragraphs: [
+      "We believe that there is only one living and true God, infinite in every excellence; that in the unity of the Godhead there are three (3) distinct personalities - God the Father, God the Son, and God the Holy Spirit - yet one in substance and equal in every divine perfection.",
+      "We believe in the absolute Deity of the Son, the Lord Jesus Christ; that He was divine as no other man can be, being God the Son of God the Father, existing from all eternity, co-equal with the Father and the Holy Spirit; that He never ceased to be God for one instant and His humiliation did not consist in laying aside His Deity; that to walk on this earth as man, He was miraculously born of the Virgin Mary through the implantation of the Holy Spirit.",
+      "We believe that the Holy Spirit is a Divine Person, equal with the Father and the Son. The Holy Spirit convicts us of sin and dwells within every believer who accepts God the Son as their Lord and Savior, to bear witness to the truth, teach, guide in life's directions, and comfort in times of need."
+    ],
+    verses: [
+      "Exodus 20:2-3", "I Corinthians 8:6", "I John 5:7", "John 1:1-2",
+      "I John 5:20", "Matthew 1:20", "Luke 1:26-38", 
+      "II Corinthians 13:14", "John 14:16-17", "Romans 8:14-27"
+    ],
+    gradient: "from-purple-500/10 to-purple-600/5",
+    border: "border-purple-500"
+  },
+  {
+    title: "Man",
+    paragraphs: [
+      "We believe that man, Adam, was created in innocence, without sin, by God.",
+      "We further believe that Adam voluntarily, with the influence of Satan through the form of a serpent, fell from his sinless state by disobeying a direct command of God.",
+      "In consequence, we believe that all mankind are now born in this 'prone to sin' state, which results in a sinful nature under condemnation from God without defense or excuse."
+    ],
+    verses: ["Genesis 3:1-6", "Romans 5:10-19", "Romans 1:13", "Romans 1:32"],
+    gradient: "from-green-500/10 to-green-600/5",
+    border: "border-green-500"
+  },
+  {
+    title: "Salvation, New Birth & Security",
+    paragraphs: [
+      "We believe that our acknowledgment of sin in our lives and acceptance of Jesus Christ as Savior based on His finished work on Calvary is the only condition of salvation from sin, and that this salvation is wholly by the Grace of God.",
+      "We further believe that no works, no matter how good they may appear to be, makes our salvation any more secure.",
+      "We believe that all who accept Christ as their personal Savior are instantly saved from the penalties of sin, and eternally secure in that salvation."
+    ],
+    verses: [
+      "John 3:1-7", "Acts 16:31", "Ephesians 2:8-9", "Titus 3:5-7", 
+      "Romans 10:9-13", "John 10:28-29", "Romans 8:35-39", "John 14:1-2"
+    ],
+    gradient: "from-red-500/10 to-red-600/5",
+    border: "border-red-500"
+  },
+  {
+    title: "Local Church",
+    paragraphs: [
+      "We believe that a local church is a congregation of baptized believers who profess and proclaim Jesus Christ as their personal Lord and Savior:"
+    ],
+    list: [
+      "Observing the Ordinances set forth by our Lord and Savior Jesus Christ",
+      "Governed by God's Word",
+      "Exercising the rights and privileges afforded by the Word of God, and encouraging each other to utilize the gifts provided each of us by our Lord for the benefit of the Church"
+    ],
+    paragraphs2: [
+      "We believe the true mission of the Church is the faithful witnessing of Christ to all people as we have the opportunity.",
+      "We believe that the local church has the absolute right of self-government, free from the guidance of any outside hierarchy of individuals or organizations - regardless of how well intended that guidance may be. The local church will decide on matters of membership, of governing policy within the local church, of discipline, and giving. Only the Word of God will provide the guiding direction for this church.",
+      "We believe it is scriptural for churches of like faith and belief to cooperate with each other in reaching out in the community and in the world to reach those that do not know Jesus Christ as Lord and Savior. Each local church will be their own judge relative to the measure and method of their cooperation."
+    ],
+    verses: [
+      "Acts 2:41-42", "I Corinthians 11:2", "Ephesians 1:22-23", 
+      "Ephesians 4:11", "Acts 20:27-28", "Colossians 1:18", 
+      "I Timothy 3:1-15", "Ephesians 5:22-23", "Acts 15:13-18"
+    ],
+    gradient: "from-yellow-500/10 to-yellow-600/5",
+    border: "border-yellow-500"
+  },
+  {
+    title: "Last Things",
+    subsections: [
+      {
+        subtitle: "Pre-tribulation / Pre-millennial Return of Christ",
+        content:
+          "We believe in the bodily, personal, pre-tribulation/pre-millennial return of Jesus Christ to the earth; that He will come before the seven year tribulation period to meet in the air all those who have accepted Him as their personal Lord and Savior - whether living or dead. Further, Christ will come with His church at the close of the tribulation period to judge all the nations then on earth and to set up His kingdom on earth.",
+        verses: ["I Thessalonians 4:13-18", "Matthew 25:31-46", "Revelation 19:11-21"]
+      },
+      {
+        subtitle: "Eternal Destiny",
+        content:
+          "We believe in a literal Heaven; a place being prepared by God; a place of true joy and bliss; a place for all who have accepted Christ as their personal Savior to look forward to spend their eternity with Him in Heaven. Further, we believe in a literal Hell, with real flames; a place prepared for the eternal punishment of Satan and his angels; a place of eternal torment and pain; a place where those who do not accept Jesus Christ as their personal Savior will be cast following Christ's Millennial reign and their ultimate verdict at the Great White Throne of Judgment.",
+        verses: []
+      }
+    ],
+    gradient: "from-teal-500/10 to-teal-600/5",
+    border: "border-teal-500"
+  }
+];
+
 
 export const ministries = [
   {
@@ -353,3 +445,106 @@ export const whyWeGive = [
     description: 'Helps fulfill the Great Commission locally and globally.'
   }
 ];
+
+export const currentMissions = [
+  {
+    id: '1',
+    country: 'Tanzania',
+    location: 'Bunju & Kiteto Manyara',
+    leader: 'Pastor Peter Kasamba',
+    status: 'Active',
+    established: '2009',
+    churches: 2,
+    description: 'Thriving ministry with recent church plant in the interior regions. Strong local leadership development and community outreach.',
+    highlights: [
+      'Second church recently opened in interior region',
+      'Growing congregation with local leadership',
+      'Community outreach programs established',
+      'Youth ministry development in progress'
+    ],
+    image: '/images/eva.jpg',
+    needs: ['Bibles in Swahili', 'Transportation for outreach', 'Building materials']
+  },
+  {
+    id: '2',
+    country: 'South Sudan',
+    location: 'Juba',
+    leader: 'Saada Williams',
+    status: 'Active',
+    established: '2015',
+    churches: 1,
+    description: 'New mission field with focus on education, evangelism and community development in challenging circumstances.',
+    highlights: [
+      'Ministry to displaced families',
+      'Basic education programs',
+      'Medical outreach initiatives',
+      'Leadership training in progress'
+    ],
+    image: '/images/edu.png',
+    needs: ['Medical supplies', 'Educational materials', 'Food assistance']
+  }
+];
+
+export const localMissions = [
+  {
+    title: 'Nairobi Street Ministry',
+    description: 'Reaching the homeless and street families with the Gospel and practical support.',
+    frequency: 'Weekly',
+    volunteers: 15
+  },
+  {
+    title: 'Prison Ministry',
+    description: 'Sharing hope and rehabilitation programs in local correctional facilities.',
+    frequency: 'Monthly',
+    volunteers: 8
+  },
+  {
+    title: 'School Outreach',
+    description: 'Character building and spiritual guidance in local primary and secondary schools.',
+    frequency: 'Bi-weekly',
+    volunteers: 12
+  }
+];
+
+export const missionStrategy = [
+  {
+    id: 1,
+    title: 'Plant Churches',
+    description: 'Establish self-sustaining local churches that can reach their own communities and plant additional churches.',
+    icon: Target
+  },
+  {
+    id: 2,
+    title: 'Train Leaders',
+    description: 'Develop indigenous leadership through biblical training, mentorship, and practical ministry experience.',
+    icon: Users
+  },
+  {
+    id: 3,
+    title: 'Serve Communities',
+    description: 'Meet physical and spiritual needs through holistic ministry that demonstrates Christ\'s love in practical ways.',
+    icon: Heart
+  },
+];
+
+export const joinMisssion = [
+  {
+    id: 1,
+    title: 'Pray',
+    description: 'Join our monthly prayer meetings and receive updates on our mission fields. Prayer is the foundation of all effective ministry.',
+    icon: Heart
+  },
+{
+  id: 2,
+  title: 'Give',
+  description: 'Support our missionaries and mission projects through financial partnership. Every gift makes an eternal difference.',
+  icon: Globe
+},
+{
+  id: 3,
+  title: 'Go',
+  description: 'Join short-term mission trips or consider long-term missionary service. Experience the joy of sharing Christ cross-culturally.',
+  icon: Users
+}
+]
+

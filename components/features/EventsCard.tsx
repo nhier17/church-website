@@ -1,67 +1,81 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Clock, MapPin } from "lucide-react";
 import { getCategoryColor } from "@/lib/utils";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import Link from "next/link";
 
 interface EventCardProps {
     event: EventData;
 }
 
 const EventsCard = ({ event }: EventCardProps) => {
+  const eventDate = new Date(event.date);
+  const formattedDate = eventDate.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  const categoryColor = getCategoryColor(event.category);
+
   return (
-    <div className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-        <div className="relative overflow-hidden rounded-t-lg w-full h-64">
+    <Card
+      className={`overflow-hidden shadow-md transition-transform hover:scale-[1.02] hover:shadow-xl relative p-0`}
+    >
+      {event.imageUrl && (
+        <div className="relative h-48 w-full">
           <Image
             src={event.imageUrl}
             alt={event.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-          <div className="absolute top-4 left-4">
-            <Badge className={getCategoryColor(event.category)}>
-              {event.category}
-            </Badge>
-          </div>
+          
+        </div>
+      )}
+
+      <CardContent className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <Badge variant="outline" className={`font-semibold ${categoryColor}`}>
+            {event.category}
+          </Badge>
+          <Badge variant="default" className="flex items-center gap-1">
+            <Calendar className="h-3 w-3" />
+            {formattedDate}
+          </Badge>
         </div>
 
-      <div className="p-6 bg-white shadow-lg rounded-b-lg">
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-          {event.title}
-        </h3>
+        <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
 
-        <p className="text-gray-600 mb-4 leading-relaxed">
+        <div className="flex flex-col gap-1 text-sm text-muted-foreground mb-3">
+          <span className="flex items-center gap-2">
+            <Clock className="h-4 w-4" />
+            {event.time}
+          </span>
+          <span className="flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            {event.location}
+          </span>
+        </div>
+
+          <p className="text-muted-foreground text-sm line-clamp-3">
           {event.description}
         </p>
+      </CardContent>
 
-        <div className="space-y-2 text-sm text-gray-500">
-          <div className="flex items-center space-x-2">
-            <Calendar className="h-4 w-4" />
-            <span>{new Date(event.date).toLocaleDateString()}</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Clock className="h-4 w-4" />
-            <span>{event.time}</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <MapPin className="h-4 w-4" />
-            <span>{event.location}</span>
-          </div>
-        </div>
-        <div className="pt-4">
-        {event.registrationUrl && (
-          <Button className="w-full bg-green-100 hover:bg-green-900" asChild>
-            <a href={event.registrationUrl}>
-              Register Now
-              <ExternalLink className="h-4 w-4 ml-2" />
-            </a>
-          </Button>
-        )}
-      </div>
-      </div>
-    </div>
-  )
-}
+      {event.registrationUrl && (
+        <CardFooter className="p-6 border-t">
+          <Link
+            href={event.registrationUrl}
+            className="text-green-100 font-medium hover:underline"
+          >
+            Register →
+          </Link>
+        </CardFooter>
+      )}
+    </Card>
+  );
+};
 
-export default EventsCard
+export default EventsCard;

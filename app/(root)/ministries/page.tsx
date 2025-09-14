@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import MinistryCard from '@/components/features/MinistryCard'
 import { ministries } from '@/constants';
-import { getMinistryIcon } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import Image from 'next/image';
@@ -15,7 +14,6 @@ const Ministries = () => {
 
   return (
     <div className="pt-16">
-      {/* ===== Top Section ===== */}
       <section className="section-padding bg-green-100 text-primary-foreground">
         <div className="container-custom text-center">
           <h1 className="heading-2 mb-6">Our Ministries</h1>
@@ -26,7 +24,6 @@ const Ministries = () => {
         </div>
       </section>
 
-      {/* ===== Ministries Grid ===== */}
       <section className="section-padding bg-white">
         <div className="text-start md:text-center mb-12">
           <h2 className="heading-2">Find Your Place to Serve</h2>
@@ -37,14 +34,12 @@ const Ministries = () => {
             <MinistryCard 
               key={ministry.id} 
               ministry={ministry}
-              icon={getMinistryIcon(ministry.name)}
               onLearnMore={() => setSelectedMinistry(ministry)}
             />
           ))}
         </div>
       </section>
 
-      {/* ===== Call to Action ===== */}
       <section className="section-padding bg-secondary">
         <div className="max-w-4xl mx-auto text-start md:text-center">
           <div className="mb-12">
@@ -90,7 +85,6 @@ const Ministries = () => {
         </div>
       </section>
 
-      {/* ===== Modal (Dialog) ===== */}
       <Dialog open={!!selectedMinistry} onOpenChange={() => setSelectedMinistry(null)}>
         <DialogContent className="max-w-2xl">
           {selectedMinistry && (

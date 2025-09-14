@@ -1,23 +1,26 @@
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { HeartHandshake, Award, Heart, Mail, Cross } from 'lucide-react';
-import { leaders } from '@/constants';
+import { useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
+import { Heart, HeartHandshake, Award, Cross, Mail, Sparkles, ArrowRight, Users, BookOpen, Globe } from 'lucide-react';
+import { ourStory, howTo, salvationSteps, leaders, whatWeBelieve } from '@/constants';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/sea-green';
-import { ourStory, howTo, salvationSteps } from '@/constants';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 const splideOptions = {
   type: 'loop',
   autoplay: true,
   interval: 4000,
   pauseOnHover: true,
-  arrows: true,
+  arrows: false,
   pagination: true,
   gap: '1rem',
   focus: 'center',
@@ -29,359 +32,537 @@ const splideOptions = {
   },
 };
 
+// Animated Counter Component
+const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: { end: number; duration?: number; suffix?: string }) => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
+  const countRef = useRef<HTMLSpanElement>(null);
+
+  useGSAP(() => {
+    if (inView && countRef.current) {
+      gsap.fromTo(countRef.current, 
+        { textContent: 0 },
+        {
+          textContent: end,
+          duration: duration / 1000,
+          ease: "power2.out",
+          snap: { textContent: 1 },
+          onUpdate: function() {
+            if (countRef.current) {
+              countRef.current.textContent = Math.ceil(Number(this.targets()[0].textContent)) + suffix;
+            }
+          }
+        }
+      );
+    }
+  }, [inView, end, duration, suffix]);
+
+  return <span ref={ref}><span ref={countRef}>0{suffix}</span></span>;
+};
+
+// Floating Animation Component
+const FloatingElement = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (elementRef.current) {
+      gsap.to(elementRef.current, {
+        y: -10,
+        duration: 2,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: delay
+      });
+    }
+  }, [delay]);
+
+  return <div ref={elementRef}>{children}</div>;
+};
+
 const About = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [storyRef, storyInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [foundationRef, foundationInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [beliefRef, beliefInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [salvationRef, salvationInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [leadershipRef, leadershipInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Enhanced hero animations
+      const tl = gsap.timeline();
+      tl.from(".hero-title", { 
+        y: 100, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power3.out",
+        stagger: 0.2
+      })
+      .from(".hero-subtitle", { 
+        y: 50, 
+        opacity: 0, 
+        duration: 0.8, 
+        ease: "power3.out" 
+      }, "-=0.6")
+      .from(".hero-stats", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out"
+      }, "-=0.4");
+
+      // Floating orbs animation
+      gsap.to(".floating-orb", {
+        y: -20,
+        duration: 3,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.5
+      });
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
+
+  // Section animations
+  useGSAP(() => {
+    if (storyInView) {
+      gsap.from(".story-content", {
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out"
+      });
+    }
+  }, [storyInView]);
+
+  useGSAP(() => {
+    if (foundationInView) {
+      gsap.from(".foundation-tab", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out"
+      });
+    }
+  }, [foundationInView]);
+
+  useGSAP(() => {
+    if (beliefInView) {
+      gsap.from(".belief-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out"
+      });
+    }
+  }, [beliefInView]);
+
+  useGSAP(() => {
+    if (salvationInView) {
+      gsap.from(".salvation-step", {
+        x: -30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out"
+      });
+    }
+  }, [salvationInView]);
+
+  useGSAP(() => {
+    if (leadershipInView) {
+      gsap.from(".leader-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out"
+      });
+    }
+  }, [leadershipInView]);
+
   return (
-    <section className="section-padding">
+    <div className="pt-16 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <Image
+      src="/images/hero.JPG"
+      alt="Church gathering"
+      fill
+      priority
+      className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-black/60" />
 
-      <section className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(/images/hero.JPG)` }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute top-20 left-10 w-60 h-60 bg-green-500/20 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-60 h-60 bg-yellow-400/20 blur-3xl rounded-full animate-pulse" />
 
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <h1 className="heading-2 mb-6">
-            About Noonkopir Bible Baptist Church
-          </h1>
 
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Discover our heart, our story, and the people who make our church family special. We're more than a church - we're a community united by God's love.
-          </p>
-
-        </div>
+      <div className="relative z-10 text-center text-white max-w-3xl px-4">
+      <h1 className="hero-title text-4xl md:text-6xl font-bold mb-6">
+      About <span className="text-green-100">Noonkopir Bible Baptist Church</span>
+      </h1>
+      <p className="hero-subtitle text-lg md:text-xl text-gray-200 leading-relaxed">
+      Discover our story, our mission, and the people who make our church family special.
+      We are more than a church – we are a community united by God&apos;s love.
+      </p>
+      </div>
       </section>
 
-      <section className="section-padding">
-          <div className="max-w-6xl mx-auto bg-secondary p-4">
-            <h2 className="heading-3 mb-8">Our Story</h2>
+      <section ref={storyRef} className="section-padding relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 to-background" />
+        <div className="relative max-w-6xl mx-auto">
+          <div className="story-content text-center mb-16">
+            <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+              Our Story
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto mb-8 rounded-full" />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="story-content space-y-8">
+              <Card className="p-8 border-l-4 border-primary bg-gradient-to-r from-primary/5 to-transparent">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">2001</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3 text-primary">The Beginning</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      In 2001 God allowed us to start the Church at Noonkopir. We first invited people to come and since we did not have a Church building yet we set stones out in the field to sit on. Our desire was to teach the Word of God and show people how to accept Christ as their Savior.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 border-l-4 border-green-500 bg-gradient-to-r from-green-500/5 to-transparent">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Users className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3 text-green-600">Growing Together</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Now we have nice buildings to use for our Sunday School and Worship services. Even though we have nice facilities our vision has not changed to reach Men and Women and Boys and Girls with the Gospel. We still teach the Word of God and offer Bible based lessons for everyone.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 border-l-4 border-yellow-500 bg-gradient-to-r from-yellow-500/5 to-transparent">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Globe className="h-6 w-6 text-yellow-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3 text-yellow-600">Global Vision</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      We have had a good history in the past but our desire is to continue reaching people for Christ here in Kenya as well as People in other countries through our Missions Program. Come and Join us at Bible Baptist Church of Noonkopir.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 text-large text-muted-foreground">
-                <p>
-                In 2001 God allowed us to start the Church at Noonkopir.  We first invited people to come and since we did not have a Church building yet we set stones out in the field to sit on.
-                Our desire was to teach the Word of God and show people how to accept Christ and their Savior.  
-                </p>
-                <p>
-                Now we have nice buildings to use for our Sunday School and Worship services.
-                Even though we have nice facilities our vision has not changed to reach Men and Women and Boys and Girls with the Gospel. 
-                We still teach the Word of God and offering Bible based lessons for everyone.   
-                </p>
-                <p>
-                We have had a good history in the past but our desire is to continue reaching people for Christ here in Kenya as well as People in other countries through our Missions Program.
-                Come and Join us at Bible Baptist Church of Noonkopir.
-                </p>
-              </div>
-              
+            <div className="story-content relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-green-400/20 rounded-2xl blur-xl" />
               <div className="relative">
                 <Splide
                   options={splideOptions}
-                  className="p-0 rounded-lg overflow-hidden"
+                  className="rounded-2xl overflow-hidden shadow-2xl"
                 >
                   {ourStory.map((story, index) => (
                     <SplideSlide key={index}>
-                      <div className="relative w-full h-80">
+                      <div className="relative w-full h-96">
                         <Image
                           src={story.image}
                           alt={story.title}
                           fill
-                          className="object-cover"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                        <h4 className="text-white font-semibold text-lg mb-2">{story.title}</h4>
-                        <p className="text-white/90 text-sm">{story.description}</p>
+                          className="w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-8">
+                          <h4 className="text-white font-bold text-2xl mb-3">{story.title}</h4>
+                          <p className="text-white/90 text-lg leading-relaxed">{story.description}</p>
+                        </div>
                       </div>
-                    </div>
-                  </SplideSlide>
+                    </SplideSlide>
                   ))}
                 </Splide>
               </div>
             </div>
           </div>
+        </div>
       </section>
 
-      <section className="bg-muted/30 py-16">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="heading-2 mb-8">Our Foundation</h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-primary"></div>
-            <p className="mb-12 text-lg text-muted-foreground">
-              Learn about the principles that guide our work.
-            </p>
+      <section className="section-padding bg-gradient-to-br from-secondary via-background to-secondary/50">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+              Our Foundation
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto mb-8 rounded-full" />
           </div>
 
           <Tabs defaultValue="mission" className="mx-auto max-w-4xl">
-            <TabsList className="mb-8 grid w-full grid-cols-3">
-              <TabsTrigger value="mission">Mission</TabsTrigger>
-              <TabsTrigger value="vision">Vision</TabsTrigger>
-              <TabsTrigger value="values">Values</TabsTrigger>
+            <TabsList className="foundation-tab mb-12 grid w-full grid-cols-3 h-14 bg-white/50 backdrop-blur-sm">
+              <TabsTrigger value="mission" className="text-lg font-semibold">Mission</TabsTrigger>
+              <TabsTrigger value="vision" className="text-lg font-semibold">Vision</TabsTrigger>
+              <TabsTrigger value="values" className="text-lg font-semibold">Values</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="mission" className="rounded-xl border bg-card p-8 shadow-sm">
-              <div className="flex flex-col items-center text-center">
-                <HeartHandshake className="mb-6 h-16 w-16 text-green-100" />
-                <h3 className="mb-4 text-2xl font-semibold">Our Mission</h3>
-                <p className="max-w-2xl text-lg text-muted-foreground">
-                To be a church where every person feels welcomed, loved, and empowered to discover and fulfill their God-given purpose.
-                </p>
-              </div>
+            <TabsContent value="mission" className="foundation-tab">
+              <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-primary/5">
+                <CardContent className="p-12 text-center">
+                  <FloatingElement>
+                    <HeartHandshake className="mb-8 h-20 w-20 text-primary mx-auto" />
+                  </FloatingElement>
+                  <h3 className="mb-6 text-3xl font-bold text-primary">Our Mission</h3>
+                  <p className="max-w-2xl mx-auto text-xl text-muted-foreground leading-relaxed">
+                    To be a church where every person feels welcomed, loved, and empowered to discover and fulfill their God-given purpose.
+                  </p>
+                </CardContent>
+              </Card>
             </TabsContent>
 
-            <TabsContent value="vision" className="rounded-xl border bg-card p-8 shadow-sm">
-              <div className="flex flex-col items-center text-center">
-                <Award className="mb-6 h-16 w-16 text-green-100" />
-                <h3 className="mb-4 text-2xl font-semibold">Our Vision</h3>
-                <p className="max-w-2xl text-lg text-muted-foreground">
-                To be a church where every person feels welcomed, loved, and empowered to discover and fulfill their God-given purpose.
-                </p>
-              </div>
+            <TabsContent value="vision" className="foundation-tab">
+              <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-green-500/5">
+                <CardContent className="p-12 text-center">
+                  <FloatingElement delay={0.2}>
+                    <Award className="mb-8 h-20 w-20 text-green-100 mx-auto" />
+                  </FloatingElement>
+                  <h3 className="mb-6 text-3xl font-bold text-green-100">Our Vision</h3>
+                  <p className="max-w-2xl mx-auto text-xl text-muted-foreground leading-relaxed">
+                    To be a church where every person feels welcomed, loved, and empowered to discover and fulfill their God-given purpose.
+                  </p>
+                </CardContent>
+              </Card>
             </TabsContent>
 
-            <TabsContent value="values" className="rounded-xl border bg-card p-8 shadow-sm">
-              <div className="flex flex-col items-center text-center">
-                <Heart className="mb-6 h-16 w-16 text-green-100" />
-                <h3 className="mb-4 text-2xl font-semibold">Our Values</h3>
-                <p className="max-w-2xl text-lg text-muted-foreground">
-                Love, Community, Growth, Integrity, and Service guide everything we do as we strive to honor God in all aspects of church life.
-                </p>
-              </div>
+            <TabsContent value="values" className="foundation-tab">
+              <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-yellow-500/5">
+                <CardContent className="p-12 text-center">
+                  <FloatingElement delay={0.4}>
+                    <Heart className="mb-8 h-20 w-20 text-yellow-600 mx-auto" />
+                  </FloatingElement>
+                  <h3 className="mb-6 text-3xl font-bold text-yellow-600">Our Values</h3>
+                  <p className="max-w-2xl mx-auto text-xl text-muted-foreground leading-relaxed">
+                    Love, Community, Growth, Integrity, and Service guide everything we do as we strive to honor God in all aspects of church life.
+                  </p>
+                </CardContent>
+              </Card>
             </TabsContent>
           </Tabs>
       </section>
 
-      <section className="section-padding">
-          <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">What We Believe</h2>
+      <section className="section-padding bg-gradient-to-br from-background to-secondary/30">
+        <div className="text-center mb-20">
+          <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+            What We Believe
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
+        </div>
+
+        <div className="max-w-5xl mx-auto space-y-8">
+        {whatWeBelieve.map((belief, index) => (
+          <Card
+            key={index}
+            className={`belief-card border-l-4 ${belief.border} bg-gradient-to-r ${belief.gradient} shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+          >
+            <CardContent className="p-8 space-y-4">
+              <h3 className="text-2xl font-bold text-primary">
+                {belief.title}
+              </h3>
+
+              {belief.paragraphs?.map((para, i) => (
+                <p
+                  key={i}
+                  className="text-muted-foreground leading-relaxed text-lg"
+                >
+                  {para}
+                </p>
+              ))}
+
+              {belief.list && (
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground text-lg pl-4">
+                  {belief.list.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              )}
+
+              {belief.paragraphs2?.map((para, i) => (
+                <p
+                  key={i}
+                  className="text-muted-foreground leading-relaxed text-lg"
+                >
+                  {para}
+                </p>
+              ))}
+
+              {belief.subsections?.map((sub, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-xl font-semibold text-primary">
+                    {sub.subtitle}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {sub.content}
+                  </p>
+                  {sub.verses?.length > 0 && (
+                    <p className="text-sm italic text-muted-foreground font-medium">
+                      {sub.verses.join(", ")}
+                    </p>
+                  )}
+                </div>
+              ))}
+
+              {belief.verses && (
+                <p className="text-sm italic text-muted-foreground font-medium">
+                  {belief.verses.join(", ")}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+
+
+          <div className="text-center bg-gradient-to-r from-primary/10 to-green-500/10 p-12 rounded-2xl border border-primary/20">
+            <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
+            <p className="text-2xl font-bold text-foreground mb-4">
+              "To be a Christian is a God given grace and opportunity to follow God's will & plan for our lives in serving Him on this earth."
+            </p>
+            <p className="text-lg text-primary font-semibold">
+              Romans 12:1-2
+            </p>
           </div>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Holy Scriptures</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  We believe that the Holy Bible, as originally written, was verbally inspired and the product of Spirit-controlled men, and therefore, is completely true, without error, in its content. We believe the Bible to be the foundation upon which to establish Christian relationships, and the Supreme standard by which our thoughts and actions are to be tested.
-                </p>
-                <p className="text-sm text-muted-foreground italic">
-                  (II Timothy 3:16-17, II Peter 1:19-20)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Godhead and the Trinity</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    We believe that there is only one living and true God, infinite in every excellence; that in the unity of the Godhead there are three (3) distinct personalities - God the Father, God the Son, and God the Holy Spirit - yet one in substance and equal in every divine perfection.
-                  </p>
-                  <p>
-                    We believe in the absolute Deity of the Son, the Lord Jesus Christ; that He was divine as no other man can be, being God the Son of God the Father, existing from all eternity, co-equal with the Father and the Holy Spirit; that He never ceased to be God for one instant and His humiliation did not consist in laying aside His Deity; that to walk on this earth as man, He was miraculously born of the Virgin Mary through the implantation of the Holy Spirit.
-                  </p>
-                  <p>
-                    We believe that the Holy Spirit is a Divine Person, equal with the Father and the Son. The Holy Spirit convicts us of sin and dwells within every believer who accepts God the Son as their Lord and Savior, to bear witness to the truth, teach, guide in life's directions, and comfort in times of need.
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground italic mt-4">
-                  (Exodus 20:2,3; I Corinthians 8:6; I John 5:7; John 1:1,2; I John 5:20; Matthew 1:20; Luke 1:26-38; II Corinthians 13:14; John 14:16,17; Romans 8:14-27)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Man</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  We believe that man, Adam, was created in innocence, without sin, by God. We further believe that Adam voluntarily, with the influence of Satan through the form of a serpent, fell from his sinless state by disobeying a direct command of God. In consequence, we believe that all mankind are now born in this "prone to sin" state, which results in a sinful nature under condemnation from God without defense or excuse.
-                </p>
-                <p className="text-sm text-muted-foreground italic">
-                  (Genesis 3:1-6; Romans 5:10-19; Romans 1:13; Romans 1:32)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Salvation - New Birth - Justification by Faith - Security of the Believer</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    We believe that our acknowledgment of sin in our lives and acceptance of Jesus Christ as Savior based on His finished work on Calvary is the only condition of salvation from sin, and that this salvation is wholly by the Grace of God. We further believe that no works, no matter how good they may appear to be, makes our salvation any more secure.
-                  </p>
-                  <p>
-                    We believe that all who accept Christ as their personal Savior are instantly saved from the penalties of sin, and eternally secure in that salvation.
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground italic mt-4">
-                  (John 3:1-7; Acts 16:31; Ephesians 2:8-9; Titus 3:5-7; Romans 10:9-13; John 10:28,29; Romans 8:35-39; John 14:1-2)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Local Church</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <div>
-                    <p className="font-medium mb-2">We believe that a local church is a congregation of baptized believers who profess and proclaim Jesus Christ as their personal Lord and Savior:</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4">
-                      <li>Observing the Ordinances set forth by our Lord and Savior Jesus Christ</li>
-                      <li>Governed by God's Word</li>
-                      <li>Exercising the rights and privileges afforded by the Word of God, and encouraging each other to utilize the gifts provided each of us by our Lord for the benefit of the Church</li>
-                    </ul>
-                  </div>
-                  <p>
-                    We believe the true mission of the Church is the faithful witnessing of Christ to all people as we have the opportunity.
-                  </p>
-                  <p>
-                    We believe that the local church has the absolute right of self-government, free from the guidance of any outside hierarchy of individuals or organizations - regardless of how well intended that guidance may be. The local church will decide on matters of membership, of governing policy within the local church, of discipline, and giving. Only the Word of God will provide the guiding direction for this church.
-                  </p>
-                  <p>
-                    We believe it is scriptural for churches of like faith and belief to cooperate with each other in reaching out in the community and in the world to reach those that do not know Jesus Christ as Lord and Savior. Each local church will be their own judge relative to the measure and method of their cooperation.
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground italic mt-4">
-                  (Acts 2:41,42; I Corinthians 11:2; Ephesians 1:22,23; Ephesians 4:11; Acts 20:27,28; Colossians 1:18; I Timothy 3:1-15; Ephesians 5:22,23; Acts 15:13-18)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">Last Things</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Pre-tribulation/Pre-millennial Return of Christ and Millennial Reign of Christ</h4>
-                    <p>
-                      We believe in the bodily, personal, pre-tribulation/pre-millennial return of Jesus Christ to the earth; that He will come before the seven year tribulation period to meet in the air all those who have accepted Him as their personal Lord and Savior - whether living or dead. Further, Christ will come with His church at the close of the tribulation period to judge all the nations then on earth and to set up His kingdom on earth.
-                    </p>
-                    <p className="text-sm italic mt-2">
-                      (I Thessalonians 4:13-18; Matthew 25:31-46; Revelation 19:11-21)
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Eternal Destiny</h4>
-                    <p>
-                      We believe in a literal Heaven; a place being prepared by God; a place of true joy and bliss; a place for all who have accepted Christ as their personal Savior to look forward to spend their eternity with Him in Heaven.
-                    </p>
-                    <p>
-                      Further, we believe in a literal Hell, with real flames; a place prepared for the eternal punishment of Satan and his angels; a place of eternal torment and pain; a place where those who do not accept Jesus Christ as their personal Savior will be cast following Christ's Millennial reign and their ultimate verdict at the Great White Throne of Judgment.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="text-center bg-primary/5 p-8 rounded-lg">
-              <p className="text-lg font-medium text-foreground mb-2">
-                "To be a Christian is a God given grace and opportunity to follow God's will & plan for our lives in serving Him on this earth."
-              </p>
-              <p className="text-sm text-muted-foreground italic">
-                Romans 12:1-2
-              </p>
-            </div>
-          </div>
+        </div>
       </section>
 
-      <section className="section-padding bg-secondary">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Cross className="h-10 w-10 text-green-100" />
-              </div>
-              <h2 className="heading-2 mb-6">How to Get to Heaven from Kenya</h2>
-            </div>
+      <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-green-500/5">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+              How to Get to Heaven from Kenya
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {howTo.map((item) => (
-             <Card key={item.id}>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-100">{item.id}. {item.title}</h3>
-                <p className="text-muted-foreground mb-4" dangerouslySetInnerHTML={{ __html: item.description }} />
-                <p 
-                  className="text-muted-foreground italic text-sm"
-                  dangerouslySetInnerHTML={{ __html: item.verse }}
-                />
-              </CardContent>
-            </Card>
-              ))}
-              <Card>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-6 text-green-100">{salvationSteps.title}</h3>
-                <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {howTo.map((item, index) => (
+              <Card key={item.id} className="salvation-step border-0 shadow-xl bg-gradient-to-br from-white to-primary/5 hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                      {item.id}
+                    </div>
+                    <h3 className="text-xl font-bold text-primary">{item.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }} />
+                  <p className="text-muted-foreground italic text-sm font-medium" dangerouslySetInnerHTML={{ __html: item.verse }} />
+                </CardContent>
+              </Card>
+            ))}
+            
+            <Card className="salvation-step md:col-span-2 border-0 shadow-xl bg-gradient-to-br from-white to-green-500/5">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6 text-center text-primary">{salvationSteps.title}</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {salvationSteps.steps.map((step) => (
-                    <div key={step.id} className="space-y-2">
-                      <div className="flex gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-50 flex items-center justify-center text-green-100 font-semibold">
-                          {step.id}.
-                        </div>
-                        <p className="text-muted-foreground">
-                          {step.text} <span className="italic text-foreground">{step.verse}</span>
-                        </p>
+                    <div key={step.id} className="flex gap-4 p-4 rounded-lg bg-primary/5">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-green-500 flex items-center justify-center text-white font-bold text-sm">
+                        {step.id}
                       </div>
+                      <p className="text-muted-foreground">
+                        {step.text} <span className="italic text-primary font-medium">{step.verse}</span>
+                      </p>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
-            </div>
-            <div className="bg-primary/5 p-8 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-center">Prayer of Salvation</h3>
-              <p className="text-muted-foreground mb-6">
-                Pray this way: Just close your eyes and bow your head and pray something like this:
-              </p>
-              <blockquote className="border-l-4 border-green-100 pl-6 py-4 bg-white rounded-r-lg mb-6">
-                <p className="text-lg italic text-foreground leading-relaxed">
+          </div>
+
+          <Card className="bg-gradient-to-br from-primary/10 to-green-500/10 border-primary/20 shadow-2xl">
+            <CardContent className="p-12">
+              <div className="text-center mb-8">
+                <Heart className="h-16 w-16 text-primary mx-auto mb-4" />
+                <h3 className="text-3xl font-bold mb-4 text-primary">Prayer of Salvation</h3>
+                <p className="text-muted-foreground text-lg mb-8">
+                  Pray this way: Just close your eyes and bow your head and pray something like this:
+                </p>
+              </div>
+              <blockquote className="border-l-4 border-primary pl-8 py-6 bg-white/80 rounded-r-2xl mb-8 shadow-lg">
+                <p className="text-xl italic text-foreground leading-relaxed">
                   "Lord I know that I am a sinner. I know that Jesus is Lord. Please come into my heart and forgive me and save me right now. Thank you very much. Amen."
                 </p>
               </blockquote>
-            </div>
-          </div>
+              <div className="text-center">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-green-500 hover:from-primary/90 hover:to-green-500/90 text-white shadow-lg" asChild>
+                  <Link href="/contact">
+                    Speak with a Pastor
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
       </section>
 
-      <section id="leadership" className="section-padding">
-          <div className="text-center mb-12">
-            <h2 className="heading-2">
-              Our Leadership Team
-            </h2>
-          </div>
+      <section ref={leadershipRef} id="leadership" className="section-padding bg-gradient-to-br from-secondary/50 to-background">
+        <div className="text-center mb-16">
+          <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+            Our Leadership Team
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
+        </div>
 
-          <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leaders.map((leader,index) => (
-            <Card key={index} className="card-hover overflow-hidden p-0">
-               <CardContent className="p-0">
-                 <div className="relative h-64 overflow-hidden">
-                   <Image
-                     src={leader.image}
-                     alt={leader.name}
-                     fill
-                     className="object-cover transition-transform duration-300 group-hover:scale-105"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                 </div>
-                 
-                 <div className="p-6 text-center">
-                   <div className="mb-4">
-                     <h4 className="text-xl font-bold text-foreground mb-2">{leader.name}</h4>
-                       <Badge className="bg-green-50 text-green-100 font-semibold text-sm">{leader.position}</Badge>
-                   </div>
-                   
-                   <p className="text-muted-foreground leading-relaxed mb-6">
-                     {leader.bio.substring(0, 120)}...
-                   </p>
-                   
-                   {leader.email && (
-                     <Button variant="outline" size="sm" className="group" asChild>
-                       <Link href={`mailto:${leader.email}`}>
-                         <Mail className="h-4 w-4 mr-2 group-hover:text-green-100 transition-colors" />
-                         Contact
-                       </Link>
-                     </Button>
-                   )}
-                 </div>
-               </CardContent>
-             </Card>
-            ))}
-          </div>
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+          {leaders.map((leader, index) => (
+            <Card key={index} className="leader-card group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-primary/5">
+              <CardContent className="p-0">
+                <div className="relative h-72 overflow-hidden">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                    <Badge className="bg-gradient-to-r from-primary to-green-500 text-white font-semibold">
+                      {leader.position}
+                    </Badge>
+                  </div>
+                </div>
+                
+                <div className="p-8 text-center">
+                  <h4 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {leader.name}
+                  </h4>
+                  
+                  {leader.email && (
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="group/btn border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-green-500 hover:text-white transition-all duration-300" 
+                      asChild
+                    >
+                      <Link href={`mailto:${leader.email}`}>
+                        <Mail className="h-5 w-5 mr-2 group-hover/btn:text-white transition-colors" />
+                        Contact
+                      </Link>
+                    </Button>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
-export default About
+export default About;
