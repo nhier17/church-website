@@ -101,7 +101,7 @@ const Events = () => {
     )}
 
     <section className="section-padding">
-      <div className="text-start md:text-center">
+      <div className="text-center">
         <h2 className="heading-2 mb-4">Stay Updated</h2>
         <div className="w-24 h-1 mb-4 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
         <p className="text-large text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -118,7 +118,7 @@ const Events = () => {
     </section>
 
     <section className="section-padding">
-        <div className="md:text-center text-start mb-12">
+        <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">Get Involved</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full mb-4" />
           <p className="text-large text-muted-foreground max-w-2xl mx-auto">

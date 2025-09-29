@@ -4,16 +4,20 @@ import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
-import { Heart, HeartHandshake, Award, Cross, Mail, Sparkles, ArrowRight, Users, BookOpen, Globe } from 'lucide-react';
+import { Heart, HeartHandshake, Award, Mail, Sparkles, ArrowRight, Users, Globe } from 'lucide-react';
 import { ourStory, howTo, salvationSteps, leaders, whatWeBelieve } from '@/constants';
 import { Button } from '@/components/ui/button';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/sea-green';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const splideOptions = {
   type: 'loop',
@@ -153,7 +157,7 @@ const About = () => {
 
       <div className="relative z-10 text-center text-white max-w-3xl px-4">
       <h1 className="hero-title text-4xl md:text-6xl font-bold mb-6">
-      About <span className="text-green-100">Noonkopir Bible Baptist Church</span>
+      About <span className="text-green-100">Us</span>
       </h1>
       <p className="hero-subtitle text-lg md:text-xl text-gray-200 leading-relaxed">
       Discover our story, our mission, and the people who make our church family special.
@@ -316,16 +320,19 @@ const About = () => {
         </div>
 
         <div className="max-w-5xl mx-auto space-y-8">
+          <Accordion type="single" collapsible className="space-y-4">
         {whatWeBelieve.map((belief, index) => (
-          <Card
+          <AccordionItem
             key={index}
+            value={`item-${index}`}
             className={`belief-card border-l-4 ${belief.border} bg-gradient-to-r ${belief.gradient} shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
           >
-            <CardContent className="p-8 space-y-4">
-              <h3 className="text-2xl font-bold text-primary">
+            <AccordionTrigger className="px-6 py-4 text-left text-2xl font-bold text-green-100">
                 {belief.title}
-              </h3>
+              </AccordionTrigger>
 
+              <AccordionContent>
+                <div className="px-6 py-4">
               {belief.paragraphs?.map((para, i) => (
                 <p
                   key={i}
@@ -373,12 +380,13 @@ const About = () => {
                   {belief.verses.join(", ")}
                 </p>
               )}
-            </CardContent>
-          </Card>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
         ))}
+        </Accordion>
 
-
-          <div className="text-center bg-gradient-to-r from-primary/10 to-green-500/10 p-12 rounded-2xl border border-primary/20">
+          <div className="bg-gradient-to-r from-primary/10 to-green-500/10 p-12 rounded-2xl border border-primary/20">
             <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
             <p className="text-2xl font-bold text-foreground mb-4">
               "To be a Christian is a God given grace and opportunity to follow God's will & plan for our lives in serving Him on this earth."
@@ -390,7 +398,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-green-500/5">
+      <section id="how-to-get-to-heaven" className="section-padding bg-gradient-to-br from-primary/5 via-background to-green-500/5">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
               How to Get to Heaven from Kenya
@@ -399,7 +407,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {howTo.map((item, index) => (
+            {howTo.map((item) => (
               <Card key={item.id} className="salvation-step border-0 shadow-xl bg-gradient-to-br from-white to-primary/5 hover:shadow-2xl transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-4">

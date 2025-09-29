@@ -1,7 +1,4 @@
-import { Button } from "../ui/button";
-import Link from "next/link";
 import { Card, CardContent } from "../ui/card";
-import { Mail,ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { leaders } from "@/constants";
 import { Badge } from "../ui/badge";
@@ -10,7 +7,8 @@ const Leaders = () => {
   return (  
     <section className="section-padding">
       <div className="text-center mb-16">
-        <h2 className="heading-2">Meet Our Pastors</h2>
+        <h2 className="heading-2 mb-4">Meet Our Pastors</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -37,15 +35,6 @@ const Leaders = () => {
             </CardContent>
           </Card>
         ))}
-      </div>
-      
-      <div className="text-center mt-12">
-        <Button variant="outline" asChild size="lg" className="bg-green-100 text-white hover:bg-green-900">
-          <Link href="/about">
-            Meet All Our Leaders
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
       </div>
     </section>
     );

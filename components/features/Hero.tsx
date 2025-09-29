@@ -129,6 +129,22 @@ const Hero = () => {
           <p className="italic text-sm md:text-base text-white/70">
             “Let everything that has breath praise the Lord.” – Psalm 150:6
           </p>
+
+        <div className="bg-gradient-to-r from-green-700/70 to-green-900/70 border border-green-300/20 rounded-2xl p-6 mt-6 inline-block shadow-xl backdrop-blur-md">
+          <h3 className="text-white font-extrabold text-xl tracking-wide mb-3">
+            Join us this Sunday
+          </h3>
+          <ul className="space-y-2 text-white/90 text-base">
+            <li className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-300" />
+              Sunday School – 10:00 AM
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-300" />
+              Main Service – 11:00 AM
+            </li>
+          </ul>
+        </div>
         </div>
 
         <div

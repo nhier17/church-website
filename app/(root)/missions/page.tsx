@@ -25,8 +25,8 @@ const Missions = () => {
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
               <Globe className="h-10 w-10 text-primary" />
             </div>
-            <h2 className="heading-2 mb-6">Our Mission Heart</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
+            <h2 className="heading-2">Our Mission Heart</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full my-4" />
             <blockquote className="border-l-4 border-primary pl-8 py-6 bg-secondary rounded-r-lg mb-8">
               <p className="text-xl md:text-2xl italic text-foreground leading-relaxed mb-4">
                 "We have had a blessed history of reaching people for Christ, but our desire is to continue 
@@ -41,7 +41,7 @@ const Missions = () => {
       </section>
 
       <section className="section-padding bg-secondary">
-          <div className="text-start md:text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Current Mission Fields</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
           </div>
@@ -141,8 +141,8 @@ const Missions = () => {
               </div>
       </section>
 */}
-      <section className="section-padding bg-primary text-primary-foreground">
-          <div className="max-w-4xl mx-auto text-start md:text-center">
+      <section className="section-padding bg-green-100 text-primary-foreground">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 mb-8">Celebrating God's Faithfulness</h2>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
@@ -179,7 +179,7 @@ const Missions = () => {
       </section>
 
       <section className="section-padding">
-          <div className="text-start md:text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Join the Mission</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
           </div>
@@ -205,7 +205,7 @@ const Missions = () => {
       </section>
       
       <section className="section-padding">
-          <div className="max-w-4xl mx-auto text-start md:text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 mb-8">The Great Commission</h2>
             
             <blockquote className="border-l-4 border-primary pl-8 py-6 bg-secondary rounded-r-lg mb-8">
@@ -225,7 +225,7 @@ const Missions = () => {
       </section>
 
       <section className="section-padding bg-secondary">
-          <div className="text-start md:text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Our Mission Strategy</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
           </div>
@@ -246,7 +246,7 @@ const Missions = () => {
       </section>
 
       <section className="section-padding">
-          <h2 className="heading-2 md:text-center text-start mb-4">Answer the Call</h2>
+          <h2 className="heading-2 md:text-center text-center mb-4">Answer the Call</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full mb-4" />
           <p className="text-large text-muted-foreground max-w-2xl mx-auto mb-8">
             God is calling NBBC Church to be part of His global mission. Whether through 
@@ -254,13 +254,13 @@ const Missions = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="bg-green-100">
+            <Button size="lg" asChild className="bg-green-100 hover:bg-green-100/80">
               <Link href="/contact">
                 Get Involved in Missions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="hover:bg-green-100 hover:text-white">
               <Link href="/giving">
                 Support Our Missionaries
                 <Heart className="ml-2 h-5 w-5" />

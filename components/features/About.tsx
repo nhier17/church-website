@@ -7,11 +7,10 @@ import { Heart,Users, BookOpen } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-16">
+    <section className="section-padding">
       <div className="text-center mb-16">
-        <h2 className="heading-2">
-          Our Story & Mission
-        </h2>
+        <h2 className="heading-2 mb-4">Our Story & Mission</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">

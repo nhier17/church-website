@@ -3,8 +3,6 @@
 import ContactForm from "@/components/forms/ContactForm";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
 import { addressInfo, faqs } from "@/constants";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -58,10 +56,11 @@ const Contact = () => {
     </section>
 
     <section className="section-padding">
-    <div className="md:text-center text-start mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold  mb-4">
+    <div className="text-center mb-12">
+            <h2 className="heading-2 mb-4">
             Find Our Location
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
           </div>
           <Card className="overflow-hidden p-0">
             <CardContent className="p-0">
@@ -80,8 +79,9 @@ const Contact = () => {
     </section>
 
     <section className="section-padding bg-muted/30">
-        <div className="md:text-center text-start">
-          <h2 className="mb-2 heading-3">Frequently Asked Questions</h2>
+        <div className="text-center">
+          <h2 className="mb-2 heading-2">Frequently Asked Questions</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
         </div>
 
         <div className="mx-auto max-w-4xl">
@@ -103,23 +103,6 @@ const Contact = () => {
           ))}
         </div>
     </section>
-
-    <section className="section-padding">
-        <div className="md:text-center text-start">
-          <Card className="max-w-2xl mx-auto">
-            <h2 className="mb-2 heading-3">How to get to heaven from Kenya</h2>
-            <CardContent>
-              <p className="text-muted-foreground mb-6">
-                If you're interested in learning how to get to heaven from Kenya, we invite you to visit our website or contact us for more information. 
-              </p>
-              <Button className="bg-green-100">
-                <Phone className="h-4 w-4 mr-2" />
-                Contact Us
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
   </div>
   );
 };

@@ -5,9 +5,8 @@ const CoreValues = () => {
   return (
     <section className="section-padding">
       <div className="text-center mb-12">
-        <h2 className="heading-2">
-          Our Core Values
-        </h2>
+        <h2 className="heading-2 mb-4">Our Core Values</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

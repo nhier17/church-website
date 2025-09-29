@@ -272,8 +272,8 @@ export const whatWeBelieve = [
       "In consequence, we believe that all mankind are now born in this 'prone to sin' state, which results in a sinful nature under condemnation from God without defense or excuse."
     ],
     verses: ["Genesis 3:1-6", "Romans 5:10-19", "Romans 1:13", "Romans 1:32"],
-    gradient: "from-green-500/10 to-green-600/5",
-    border: "border-green-500"
+    gradient: "from-gray-500/10 to-gray-600/5",
+    border: "border-gray-800"
   },
   {
     title: "Salvation, New Birth & Security",

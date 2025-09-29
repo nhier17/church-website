@@ -25,7 +25,7 @@ const Ministries = () => {
       </section>
 
       <section className="section-padding bg-white">
-        <div className="text-start md:text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="heading-2">Find Your Place to Serve</h2>
         </div>
 
@@ -41,7 +41,7 @@ const Ministries = () => {
       </section>
 
       <section className="section-padding bg-secondary">
-        <div className="max-w-4xl mx-auto text-start md:text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <div className="mb-12">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Heart className="h-10 w-10 text-green-100" />
