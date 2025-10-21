@@ -1,11 +1,17 @@
 "use client";
 
+import React, { useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Church, Smartphone, Building, Copy, Banknote, Mail, Users, Info } from 'lucide-react';
+import { Smartphone, Building, Copy } from 'lucide-react';
 import { whyWeGive } from '@/constants';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { toast } from 'sonner';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Giving = () => {
   const copyToClipboard = (text: string) => {
@@ -13,20 +19,39 @@ const Giving = () => {
     toast.success("Copied to clipboard!");
   };
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(sectionRef.current, {
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="pt-16">
       <section className="section-padding bg-green-100 text-primary-foreground">
         <div className="container-custom text-center">
           <h1 className="heading-2 mb-6">Generous Giving</h1>
           <p className="text-large max-w-3xl mx-auto text-primary-foreground/90">
-            Your generosity helps us share God's love, support our community, 
+            Your generosity helps us share God&apos;s love, support our community, 
             and make a lasting impact both locally and globally. 
             Every gift counts and changes lives!
           </p>
         </div>
       </section>
   
-      <section className="section-padding">
+      <section ref={sectionRef} className="section-padding">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-4">Why We Give</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -47,7 +72,7 @@ const Giving = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-gray-50">
+      <section ref={sectionRef} className="section-padding bg-gray-50">
         <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">Ways You Can Give</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />

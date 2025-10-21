@@ -15,8 +15,10 @@ interface Ministry {
     id: string;
     name: string;
     description: string;
-    targetAudience: string;
+    ageGroup: string;
     meetingTime: string;
     location: string;
     imageUrl: string;
+    contact: string;
+    leader: string;
 }

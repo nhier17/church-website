@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { navlinks } from "@/constants";
 import { usePathname } from "next/navigation";
@@ -38,14 +37,12 @@ export function Navbar() {
               <div className="flex items-center justify-between h-20">
                 <Link href="/" className="flex items-center space-x-3">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/nbbc.png"
                     alt="Noonkopir Bible Baptist Church Logo"
                     width={50}
                     height={50}
+                    className="object-cover rounded-lg"
                   />
-                  <div className="hidden sm:block">
-                    <h1 className="text-xl font-bold text-green-100">NBBC</h1>
-                  </div>
                 </Link>
       
                 <div className="hidden lg:flex items-center space-x-8">

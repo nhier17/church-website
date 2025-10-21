@@ -1,13 +1,40 @@
-import React from 'react'
-import { Globe, Users, Heart, ArrowRight, Church, MapPin, Zap } from 'lucide-react';
+"use client";
+
+import React, { useRef } from 'react'
+import { Globe, Heart, ArrowRight, Church, MapPin, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { currentMissions, localMissions, missionStrategy, joinMisssion } from '@/constants';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Missions = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(sectionRef.current, {
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="pt-20">
       <section className="section-padding bg-green-100 text-primary-foreground">
@@ -20,7 +47,7 @@ const Missions = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={sectionRef} className="section-padding">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
               <Globe className="h-10 w-10 text-primary" />
@@ -29,18 +56,18 @@ const Missions = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full my-4" />
             <blockquote className="border-l-4 border-primary pl-8 py-6 bg-secondary rounded-r-lg mb-8">
               <p className="text-xl md:text-2xl italic text-foreground leading-relaxed mb-4">
-                "We have had a blessed history of reaching people for Christ, but our desire is to continue 
-                expanding God's kingdom here in Kenya and in other nations through our Missions Program."
+                &quot;We have had a blessed history of reaching people for Christ, but our desire is to continue 
+                expanding God&apos;s kingdom here in Kenya and in other nations through our Missions Program.&quot;
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Through faithful partnerships and dedicated missionaries, we're seeing lives transformed 
+                Through faithful partnerships and dedicated missionaries, we&apos;re seeing lives transformed 
                 and churches planted across East Africa. Every soul reached is a victory for the Kingdom of God.
               </p>
             </blockquote>
           </div>
       </section>
 
-      <section className="section-padding bg-secondary">
+      <section ref={sectionRef} className="section-padding bg-secondary">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Current Mission Fields</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -141,23 +168,23 @@ const Missions = () => {
               </div>
       </section>
 */}
-      <section className="section-padding bg-green-100 text-primary-foreground">
+      <section ref={sectionRef} className="section-padding bg-green-100 text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="heading-2 mb-8">Celebrating God's Faithfulness</h2>
+            <h2 className="heading-2 mb-8">Celebrating God&apos;s Faithfulness</h2>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <Church className="h-12 w-12 text-green-400" />
                 <div className="text-left">
                   <h3 className="text-2xl font-bold">Tanzania Mission Update</h3>
-                  <p className="text-primary-foreground/80">Pastor Peter's Ministry</p>
+                  <p className="text-primary-foreground/80">Pastor Peter&apos;s Ministry</p>
                 </div>
               </div>
               
               <blockquote className="text-lg md:text-xl italic leading-relaxed mb-6">
-                "We praise God for the incredible progress in Tanzania! Pastor Peter has faithfully 
-                served the community, and we're thrilled to announce that a second church has just 
-                been opened in the interior regions. More souls are being reached for Christ every day."
+                &quot;We praise God for the incredible progress in Tanzania! Pastor Peter has faithfully 
+                served the community, and we&apos;re thrilled to announce that a second church has just 
+                been opened in the interior regions. More souls are being reached for Christ every day.&quot;
               </blockquote>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
@@ -178,7 +205,7 @@ const Missions = () => {
           </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={sectionRef} className="section-padding">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Join the Mission</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -204,27 +231,27 @@ const Missions = () => {
           </div>
       </section>
       
-      <section className="section-padding">
+      <section ref={sectionRef} className="section-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 mb-8">The Great Commission</h2>
             
             <blockquote className="border-l-4 border-primary pl-8 py-6 bg-secondary rounded-r-lg mb-8">
               <p className="text-xl md:text-2xl italic text-foreground leading-relaxed mb-4">
-                "Go ye therefore, and teach all nations, baptizing them in the name of the Father, 
+                &quot;Go ye therefore, and teach all nations, baptizing them in the name of the Father, 
                 and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever 
-                I have commanded you: and, lo, I am with you always, even unto the end of the world."
+                I have commanded you: and, lo, I am with you always, even unto the end of the world.&quot;
               </p>
               <cite className="text-green-100 font-semibold">Matthew 28:19-20</cite>
             </blockquote>
             
             <p className="text-large text-muted-foreground mb-8">
               This is our calling and our privilege. Every believer is called to participate in 
-              God's mission to reach the world with the Gospel of Jesus Christ.
+              God&apos;s mission to reach the world with the Gospel of Jesus Christ.
             </p>
           </div>
       </section>
 
-      <section className="section-padding bg-secondary">
+      <section ref={sectionRef} className="section-padding bg-secondary">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Our Mission Strategy</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -245,12 +272,12 @@ const Missions = () => {
           </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={sectionRef} className="section-padding">
           <h2 className="heading-2 md:text-center text-center mb-4">Answer the Call</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full mb-4" />
           <p className="text-large text-muted-foreground max-w-2xl mx-auto mb-8">
             God is calling NBBC Church to be part of His global mission. Whether through 
-            prayer, giving, or going, there's a place for you in this great work.
+            prayer, giving, or going, there&apos;s a place for you in this great work.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

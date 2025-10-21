@@ -13,17 +13,17 @@ const Events = () => {
     
   return (
     <div className="pt-20">
-    <section className="section-padding bg-green-100 text-white">
+    <section className="section-padding bg-green-100 text-white" data-animate="fade-up">
       <div className="text-center container-custom">
         <h1 className="heading-2 mb-6">Upcoming Events</h1>
         <p className="text-large max-w-3xl mx-auto text-primary-foreground/90">
           Join us for exciting events, fellowship opportunities, and ways to grow 
-          in community. There's always something happening at Grace Church!
-        </p>
+          in community. There&apos;s always something happening at Grace Church!
+        </p>  
       </div>
     </section>
 
-    <section className="py-8 bg-secondary">
+    <section className="py-8 bg-secondary" data-animate="fade-up" data-delay="0.1">
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
           <div className="flex flex-wrap gap-4 items-center">
             <span className="text-sm font-medium">Filter by category:</span>
@@ -51,7 +51,7 @@ const Events = () => {
         </div>
     </section>
 
-    <section className="section-padding">
+    <section className="section-padding" data-animate="fade-up" data-delay="0.15">
         <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">Upcoming Events</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -79,7 +79,7 @@ const Events = () => {
     </section>
 
     {pastEvents.length > 0 && (
-      <section className="section-padding bg-secondary">
+      <section className="section-padding bg-secondary" data-animate="fade-up" data-delay="0.2">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">Recent Events</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -100,7 +100,7 @@ const Events = () => {
       </section>
     )}
 
-    <section className="section-padding">
+    <section className="section-padding" data-animate="fade-up" data-delay="0.25">
       <div className="text-center">
         <h2 className="heading-2 mb-4">Stay Updated</h2>
         <div className="w-24 h-1 mb-4 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -117,13 +117,13 @@ const Events = () => {
       </div>
     </section>
 
-    <section className="section-padding">
+    <section className="section-padding" data-animate="fade-up" data-delay="0.3">
         <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">Get Involved</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full mb-4" />
           <p className="text-large text-muted-foreground max-w-2xl mx-auto">
             Have an idea for an event or want to help organize something? 
-            We'd love to hear from you!
+            We&apos;d love to hear from you!
           </p>
         </div>
         

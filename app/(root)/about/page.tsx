@@ -36,32 +36,6 @@ const splideOptions = {
   },
 };
 
-// Animated Counter Component
-const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: { end: number; duration?: number; suffix?: string }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const countRef = useRef<HTMLSpanElement>(null);
-
-  useGSAP(() => {
-    if (inView && countRef.current) {
-      gsap.fromTo(countRef.current, 
-        { textContent: 0 },
-        {
-          textContent: end,
-          duration: duration / 1000,
-          ease: "power2.out",
-          snap: { textContent: 1 },
-          onUpdate: function() {
-            if (countRef.current) {
-              countRef.current.textContent = Math.ceil(Number(this.targets()[0].textContent)) + suffix;
-            }
-          }
-        }
-      );
-    }
-  }, [inView, end, duration, suffix]);
-
-  return <span ref={ref}><span ref={countRef}>0{suffix}</span></span>;
-};
 
 // Floating Animation Component
 const FloatingElement = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
@@ -86,6 +60,7 @@ const FloatingElement = ({ children, delay = 0 }: { children: React.ReactNode; d
 const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [storyRef, storyInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -389,7 +364,7 @@ const About = () => {
           <div className="bg-gradient-to-r from-primary/10 to-green-500/10 p-12 rounded-2xl border border-primary/20">
             <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
             <p className="text-2xl font-bold text-foreground mb-4">
-              "To be a Christian is a God given grace and opportunity to follow God's will & plan for our lives in serving Him on this earth."
+              &quot;To be a Christian is a God given grace and opportunity to follow God&apos;s will & plan for our lives in serving Him on this earth.&quot;
             </p>
             <p className="text-lg text-primary font-semibold">
               Romans 12:1-2
@@ -452,7 +427,7 @@ const About = () => {
               </div>
               <blockquote className="border-l-4 border-primary pl-8 py-6 bg-white/80 rounded-r-2xl mb-8 shadow-lg">
                 <p className="text-xl italic text-foreground leading-relaxed">
-                  "Lord I know that I am a sinner. I know that Jesus is Lord. Please come into my heart and forgive me and save me right now. Thank you very much. Amen."
+                  &quot;Lord I know that I am a sinner. I know that Jesus is Lord. Please come into my heart and forgive me and save me right now. Thank you very much. Amen.&quot;
                 </p>
               </blockquote>
               <div className="text-center">

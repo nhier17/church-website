@@ -3,13 +3,14 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { Footer } from "@/components/layout/Footer";
+import AppAnimations from "@/components/system/AppAnimations";
 
 
 export const metadata: Metadata = {
   title: "Noonkopir Bible Baptist Church",
   description: "A family that prays together, stands together",
   icons: {
-    icon: "images/logo.png",
+    icon: "images/nbbc.png",
   },
 };
 
@@ -23,6 +24,8 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
+        {/* Global GSAP ScrollTrigger reveal animations */}
+        <AppAnimations />
         <Navbar />
         {children}
         <Toaster position="top-right" richColors />

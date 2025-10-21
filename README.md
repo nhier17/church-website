@@ -1,4 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a Next.js project. It includes GSAP ScrollTrigger-based smooth scroll reveal animations.
+
+How to use the built-in animations:
+- Add the attribute `data-animate` to any element to animate it on scroll.
+- Supported values: `fade-up` (default), `fade-down`, `fade-left`, `fade-right`, `zoom-in`.
+- Optional attributes: `data-delay="0.2"`, `data-duration="0.8"`, `data-once="true|false"`.
+- Example:
+
+```tsx
+<section data-animate="fade-up" data-delay="0.1">
+  <h2 data-animate="fade-up">Section title</h2>
+  <p data-animate="fade-right">Content...</p>
+</section>
+```
+
+Smooth scrolling for anchor links is enabled via CSS `html { scroll-behavior: smooth; }`.
+
+Advanced usage:
+- For complex timelines and parallax effects, see components/features/Hero.tsx and app/(root)/about/page.tsx which use gsap, ScrollTrigger, and @gsap/react directly.
 
 ## Getting Started
 

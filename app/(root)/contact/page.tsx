@@ -19,7 +19,7 @@ const Contact = () => {
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="mb-6 heading-2 text-white">Contact Us</h1>
           <p className="text-lg text-white md:text-xl">
-          We'd love to hear from you! Whether you have questions about our church, need prayer, or want to connect with our community, we're here to help.
+          We&apos;d love to hear from you! Whether you have questions about our church, need prayer, or want to connect with our community, we&apos;re here to help.
           </p>
         </div>
       </div>

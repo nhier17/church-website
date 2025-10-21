@@ -1,13 +1,39 @@
-import React from "react";
+"use client"
+
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import { Heart,Users, BookOpen } from "lucide-react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+const sectionRef = useRef<HTMLDivElement>(null);
+
+useGSAP(() => {
+  const ctx = gsap.context(() => {
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 60,
+      duration: 1,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, sectionRef);
+
+  return () => ctx.revert();
+}, []);
+
   return (
-    <section className="section-padding">
+    <section className="section-padding" ref={sectionRef}>
       <div className="text-center mb-16">
         <h2 className="heading-2 mb-4">Our Story & Mission</h2>
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -36,9 +62,9 @@ const About = () => {
             A Place Where Everyone Belongs
           </h3>
           <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-            We believe that church isn't just a building—it's a family. Whether you're 
+            We believe that church isn&apos;t just a building—it&apos;s a family. Whether you&apos;re 
             taking your first steps in faith or have been walking with Jesus for years, 
-            you'll find a warm welcome and genuine community here.
+            you&apos;ll find a warm welcome and genuine community here.
           </p>
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             Our mission is simple yet profound: to love God wholeheartedly, love people 
@@ -96,7 +122,7 @@ const About = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Biblical Teaching</h3>
             <p className="text-gray-600 leading-relaxed">
-              Grow in your understanding of God's Word through practical, 
+              Grow in your understanding of God&apos;s Word through practical, 
               life-applicable teaching that transforms hearts and minds.
             </p>
           </CardContent>

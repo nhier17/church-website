@@ -105,8 +105,9 @@ const Hero = () => {
         className="absolute -bottom-40 -right-40 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl animate-pulse"
       />
 
-      <div className="container-custom grid md:grid-cols-2 items-center gap-10 relative z-10">
-        <div className="text-white space-y-6">
+
+      <div className="container-custom grid md:grid-cols-2 items-center gap-10 relative z-10 justify-items-center md:justify-items-start">
+        <div className="text-white space-y-6 text-center md:text-left">
           <h1
             ref={titleRef}
             className="heading-2"
@@ -119,11 +120,11 @@ const Hero = () => {
 
           <p
             ref={subtitleRef}
-            className="text-lg md:text-xl text-white/80 max-w-lg leading-relaxed"
+            className="text-lg md:text-xl text-white/80 max-w-lg leading-relaxed mx-auto md:mx-0"
           >
             Join our loving community where faith comes alive, friendships are
             formed, and everyone belongs. Experience the transformative power of
-            God's love every Sunday.
+            God&apos;s love every Sunday.
           </p>
 
           <p className="italic text-sm md:text-base text-white/70">
@@ -149,7 +150,7 @@ const Hero = () => {
 
         <div
           ref={imageRef}
-          className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl"
+          className="relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl"
         >
           <Image
             src="/images/hero.JPG"
@@ -161,7 +162,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black/30" />
         </div>
         
-        <div ref={buttonsRef} className="flex gap-4 pb-4">
+        <div ref={buttonsRef} className="flex gap-4 pb-4 justify-center md:justify-start flex-wrap">
             <Link
               href="/about"
               className="px-6 py-3 bg-green-100 text-white font-semibold rounded-full shadow-lg hover:bg-green-100/80 transition"

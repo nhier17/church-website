@@ -336,51 +336,137 @@ export const whatWeBelieve = [
 
 export const ministries = [
   {
-    id: '1',
-    name: 'SS Kids Ministry',
-    description: 'A fun and safe environment where children learn about Jesus through engaging activities, Bible stories, crafts, and games that are tailored to their age group.',
-    targetAudience: 'Ages 0-12',
-    meetingTime: 'Sundays 10:00 AM',
-    location: 'Classroom',
-    imageUrl: '/images/ssclass.jpeg'
+    id: "1",
+    name: "SS Kids Ministry",
+    description:
+      "A fun and safe environment where children learn about Jesus through engaging activities, Bible stories, crafts, and games that are tailored to their age group.",
+    mission:
+      "To lay a strong biblical foundation for children by teaching them the Word of God in a joyful, memorable, and age-appropriate way.",
+    activities: [
+      "Bible storytelling and memory verses",
+      "Interactive crafts and games",
+      "Kids choir and dramatization",
+      "Annual VBS (Vacation Bible School)",
+    ],
+    scripture: "Proverbs 22:6 — Train up a child in the way he should go...",
+    ageGroup: "Ages 0-12",
+    meetingTime: "Sundays 10:00 AM",
+    location: "Children’s Classroom",
+    leader: "Teacher Grace M.",
+    imageUrl: "/images/ssclass.jpeg",
+    contact: "info.noonkopirbbc@gmail.com",
+    gallery: [
+      "/images/ssclass.jpeg", 
+      "/images/ssclass.jpeg", 
+      "/images/ssclass.jpeg"
+    ]
   },
   {
-    id: '2',
-    name: 'SS Adults Ministry',
-    description: 'Bible-centered classes designed for adults to deepen their knowledge of Scripture, strengthen their faith, and grow in fellowship with one another.',
-    targetAudience: 'Adults 18+',
-    meetingTime: 'Sundays 10:00 AM',
-    location: 'Classroom',
-    imageUrl: '/images/adults.JPG'
+    id: "2",
+    name: "SS Adults Ministry",
+    description:
+      "Bible-centered classes designed for adults to deepen their knowledge of Scripture, strengthen their faith, and grow in fellowship with one another.",
+    mission:
+      "To equip believers with sound biblical teaching that inspires spiritual maturity and Christian living in everyday life.",
+    activities: [
+      "Topical Bible discussions",
+      "Group prayer and accountability",
+      "Book studies and workshops",
+      "Mentorship and discipleship groups",
+    ],
+    scripture: "2 Timothy 2:15 — Study to shew thyself approved unto God...",
+    ageGroup: "Adults 18+",
+    meetingTime: "Sundays 10:00 AM",
+    location: "Main Building",
+    leader: "Elder James Mwangi",
+    imageUrl: "/images/adults.JPG",
+    contact: "info.noonkopirbbc@gmail.com",
+    gallery: [
+      "/images/adults.JPG", 
+      "/images/adults.JPG", 
+      "/images/adults.JPG"
+    ]
   },
   {
-    id: '3',
-    name: 'Missions & Evangelism Ministry',
-    description: 'Carrying the message of Christ beyond the church walls through local outreach, evangelism, and international missions.',
-    targetAudience: 'All ages',
-    meetingTime: 'Various times',
-    location: 'Tanzania, South Sudan',
-    imageUrl: '/images/missions.jpg'
+    id: "3",
+    name: "Missions & Evangelism Ministry",
+    description:
+     "Empowering believers to share the Gospel and nurture a passion for mission work. We focus on teaching, mentoring, and preparing young adults who feel called to serve in local and global missions.",
+    mission:
+    "To inspire and equip believers—especially young adults—to actively engage in evangelism and mission work, spreading the love and message of Christ both locally and beyond.",
+    activities: [
+    "Weekly teaching and discipleship sessions focused on evangelism principles",
+    "Training and mentorship for aspiring missionaries",
+    "Mission trips and support for local and international mission fields",
+    "Prayer meetings for missionaries and unreached communities",
+    ],
+    scripture: "“Go therefore and make disciples of all nations...” — Matthew 28:19",
+    ageGroup: "All ages",
+    meetingTime: "Sundays 10:00 AM",
+    location: "Missions Classroom",
+    leader: "Pastor Jerry",
+    imageUrl: "/images/ssadults.JPG",
+    contact: "info.noonkopirbbc@gmail.com",
+    gallery: [
+      "/images/ssadults.JPG", 
+      "/images/ssadults.JPG", 
+      "/images/ssadults.JPG"
+    ]
   },
   {
-    id: '4',
-    name: 'Worship Ministry',
-    description: 'Leading the congregation in heartfelt worship through music, instruments, and media, creating an atmosphere where people can encounter God’s presence.',
-    targetAudience: 'All ages',
-    meetingTime: 'Every Sunday',
-    location: 'Main Building',
-    imageUrl: '/images/choir.JPG'
+    id: "4",
+    name: "Worship Ministry",
+    description:
+      "Leading the congregation in heartfelt worship through music, instruments, and media, creating an atmosphere where people can encounter God’s presence.",
+    mission:
+      "To glorify God through excellence in music and service, preparing hearts to receive the Word of God.",
+    activities: [
+      "Sunday worship services",
+      "Weekly rehearsals and vocal training",
+      "Sound and media production",
+      "Special events and concerts",
+    ],
+    scripture: "Psalm 100:2 — Serve the LORD with gladness: come before his presence with singing.",
+    ageGroup: "All ages",
+    meetingTime: "Sundays 10:00 AM",
+    location: "Main Sanctuary",
+    leader: "Andrew Tsuma",
+    imageUrl: "/images/choir.JPG",
+    contact: "info.noonkopirbbc@gmail.com",
+    gallery: [
+      "/images/choir.JPG", 
+      "/images/choir.JPG", 
+      "/images/choir.JPG"
+    ]
   },
   {
-    id: '5',
-    name: 'Choir Ministry',
-    description: 'A dedicated team of singers who lift their voices in harmony to glorify God and inspire the congregation through special music and worship services.',
-    targetAudience: 'All ages',
-    meetingTime: 'Every Sunday after service',
-    location: 'Main Building',
-    imageUrl: '/images/choir1.JPG'
-  }
+    id: "5",
+    name: "Choir Ministry",
+    description:
+      "A dedicated team of singers who lift their voices in harmony to glorify God and inspire the congregation through special music and worship services.",
+    mission:
+      "To minister through song, touching lives and bringing souls closer to God through music.",
+    activities: [
+      "Rehearsals and vocal training",
+      "Performances during services and events",
+      "Recording of special songs",
+      "Outreach music ministry visits",
+    ],
+    scripture: "Psalm 95:1 — O come, let us sing unto the LORD...",
+    ageGroup: "All ages",
+    meetingTime: "Sundays 10:00 AM",
+    location: "Main Building",
+    leader: "Andrew Tsuma",
+    imageUrl: "/images/choir1.JPG",
+    contact: "info.noonkopirbbc@gmail.com",
+    gallery: [
+      "/images/choir1.JPG", 
+      "/images/choir1.JPG", 
+      "/images/choir1.JPG"
+    ]
+  },
 ];
+
 
 export const givingCategories = [
   { id: 'tithe', name: 'Tithe', description: 'Regular church support' },
@@ -546,5 +632,46 @@ export const joinMisssion = [
   description: 'Join short-term mission trips or consider long-term missionary service. Experience the joy of sharing Christ cross-culturally.',
   icon: Users
 }
-]
+];
+
+// gallery
+export const gallery = [
+  {
+    id: 1,
+    img: '/images/about.JPG',
+    alt: 'Choir',
+    url: '/ministries/5'
+  },
+  {
+    id: 2,
+    img: '/images/adults.JPG',
+    alt: 'Adults',
+    url: '/ministries/2'
+  },
+  {
+    id: 3,
+    img: '/images/child.JPG',
+    alt: 'Children',
+    url: '/ministries/1'
+  },
+  {
+    id: 4,
+    img: '/images/baptism.jpg',
+    alt: 'Evangelism',
+    url: '/about'
+  },
+  {
+    id: 5,
+    img: '/images/edu.png',
+    alt: 'Teens',
+    url: '/ministries/2'
+  },
+  {
+    id: 6,
+    img: '/images/eva.jpg',
+    alt: 'Missions',
+    url: '/missions'
+  }
+];
+
 

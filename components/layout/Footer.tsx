@@ -10,7 +10,7 @@ export function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="rounded-full" />
+              <Image src="/images/nbbc.png" alt="Logo" width={40} height={40} className="rounded-full" />
               <span className="font-bold text-xl">Noonkopir Bible Baptist Church</span>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">

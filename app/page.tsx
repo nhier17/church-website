@@ -6,6 +6,11 @@ import CTA from "@/components/features/CTA";
 import Leaders from "@/components/features/Leaders";
 import Greeting from "@/components/features/Greeting";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import Gallery from "@/components/features/Gallery";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const pastorMessage = (
   <>
@@ -27,7 +32,7 @@ export default function Home() {
         <Greeting pastorMessage={pastorMessage} />
         <Leaders /> 
         <About />
-        <CoreValues />  
+        <Gallery />
         <Events />  
         <CTA />
       </section>

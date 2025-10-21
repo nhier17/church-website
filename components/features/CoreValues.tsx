@@ -3,7 +3,7 @@ import { Heart, Users, BookOpen } from "lucide-react";
 
 const CoreValues = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding" data-animate="fade-up">
       <div className="text-center mb-12">
         <h2 className="heading-2 mb-4">Our Core Values</h2>
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
@@ -37,7 +37,7 @@ const CoreValues = () => {
             <BookOpen className="h-16 w-16 text-green-100 mx-auto mb-6" />
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Growth</h3>
             <p className="text-gray-600 leading-relaxed">
-              We are committed to growing in our understanding of God's Word and 
+              We are committed to growing in our understanding of God&apos;s Word and 
               helping others discover their purpose and potential in Christ.
             </p>
           </CardContent>
