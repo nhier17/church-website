@@ -337,110 +337,173 @@ export const whatWeBelieve = [
 export const ministries = [
   {
     id: "1",
-    name: "SS Kids Ministry",
+    name: "Primary Sunday School",
     description:
-      "A fun and safe environment where children learn about Jesus through engaging activities, Bible stories, crafts, and games that are tailored to their age group.",
-    mission:
-      "To lay a strong biblical foundation for children by teaching them the Word of God in a joyful, memorable, and age-appropriate way.",
-    activities: [
-      "Bible storytelling and memory verses",
-      "Interactive crafts and games",
-      "Kids choir and dramatization",
-      "Annual VBS (Vacation Bible School)",
-    ],
-    scripture: "Proverbs 22:6 — Train up a child in the way he should go...",
-    ageGroup: "Ages 0-12",
-    meetingTime: "Sundays 10:00 AM",
+      "The Primary Ministry provides a nurturing and fun environment for children to learn about God’s love through songs, stories, and engaging lessons. Our goal is to plant a strong biblical foundation in the hearts of young children.",
+    leader: "Teacher Margaret.",
+    meetingTime: "Every Sunday, 10:00 AM",
     location: "Children’s Classroom",
-    leader: "Teacher Grace M.",
-    imageUrl: "/images/ssclass.jpeg",
     contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To guide children to know, love, and follow Jesus Christ through Bible-centered teaching, songs, and creative activities that make learning God’s Word enjoyable.",
+    activities: [
+      "Bible story sessions and scripture memorization",
+      "Children’s praise and worship time",
+      "Art, crafts, and interactive games",
+      "Special Sunday presentations and recitations",
+      "Parents and children joint devotion days",
+    ],
+    scripture:
+      "“Train up a child in the way he should go, and when he is old he will not depart from it.” — Proverbs 22:6",
+    ageGroup: "children",
+    imageUrl: "/images/child.jpg",
     gallery: [
-      "/images/ssclass.jpeg", 
-      "/images/ssclass.jpeg", 
-      "/images/ssclass.jpeg"
-    ]
+      "/images/ministries/primary-1.jpg",
+      "/images/ministries/primary-2.jpg",
+      "/images/ministries/primary-3.jpg",
+    ],
   },
   {
     id: "2",
-    name: "SS Adults Ministry",
+    name: "Junior Sunday School",
     description:
-      "Bible-centered classes designed for adults to deepen their knowledge of Scripture, strengthen their faith, and grow in fellowship with one another.",
-    mission:
-      "To equip believers with sound biblical teaching that inspires spiritual maturity and Christian living in everyday life.",
-    activities: [
-      "Topical Bible discussions",
-      "Group prayer and accountability",
-      "Book studies and workshops",
-      "Mentorship and discipleship groups",
-    ],
-    scripture: "2 Timothy 2:15 — Study to shew thyself approved unto God...",
-    ageGroup: "Adults 18+",
-    meetingTime: "Sundays 10:00 AM",
-    location: "Main Building",
-    leader: "Elder James Mwangi",
-    imageUrl: "/images/adults.JPG",
+      "Helping pre-teens grow in their understanding of the Bible and their relationship with Christ. The Junior Ministry bridges the transition from childhood to adolescence with interactive teaching and mentorship.",
+    leader: "Teacher Jane",
+    meetingTime: "Every Sunday, 10:00 AM",
+    location: "Junior Class Room",
     contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To disciple pre-teens by grounding them in biblical truth, helping them develop Christian character, and preparing them to serve God faithfully in their daily lives.",
+    activities: [
+      "Bible study discussions and Q&A",
+      "Mentorship and leadership sessions",
+      "Memory verse challenges",
+      "Community projects and outreach",
+      "Interactive games and Christian quizzes",
+    ],
+    scripture:
+      "“How can a young person stay on the path of purity? By living according to your word.” — Psalm 119:9",
+    ageGroup: "pre-teens",
+    imageUrl: "/images/kids.jpg",
     gallery: [
-      "/images/adults.JPG", 
-      "/images/adults.JPG", 
-      "/images/adults.JPG"
-    ]
+      "/images/ministries/junior-1.jpg",
+      "/images/ministries/junior-2.jpg",
+      "/images/ministries/junior-3.jpg",
+    ],
   },
   {
     id: "3",
-    name: "Missions & Evangelism Ministry",
+    name: "Teens Ministry",
     description:
-     "Empowering believers to share the Gospel and nurture a passion for mission work. We focus on teaching, mentoring, and preparing young adults who feel called to serve in local and global missions.",
-    mission:
-    "To inspire and equip believers—especially young adults—to actively engage in evangelism and mission work, spreading the love and message of Christ both locally and beyond.",
-    activities: [
-    "Weekly teaching and discipleship sessions focused on evangelism principles",
-    "Training and mentorship for aspiring missionaries",
-    "Mission trips and support for local and international mission fields",
-    "Prayer meetings for missionaries and unreached communities",
-    ],
-    scripture: "“Go therefore and make disciples of all nations...” — Matthew 28:19",
-    ageGroup: "All ages",
-    meetingTime: "Sundays 10:00 AM",
-    location: "Missions Classroom",
-    leader: "Pastor Jerry",
-    imageUrl: "/images/ssadults.JPG",
+      "The Teens Ministry exists to help teenagers build their identity in Christ and make wise, godly decisions. Through fellowship, mentorship, and Bible-based discussions, teens learn to apply God’s Word in their daily lives.",
+    leader: "Brother Dominic",
+    meetingTime: "Every Sunday, 10:00 AM",
+    location: "Teen Room",
     contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To encourage teenagers to grow spiritually, develop a biblical worldview, and be bold witnesses for Christ among their peers and community.",
+    activities: [
+      "Bible study and open discussions",
+      "Music, poetry, and creative expression",
+      "Youth camps and seminars",
+      "Peer mentorship and life-skill sessions",
+      "Community and school outreach programs",
+    ],
+    scripture:
+      "“Let no one despise your youth, but be an example to the believers...” — 1 Timothy 4:12",
+    ageGroup: "teens",
+    imageUrl: "/images/ministries/teens-hero.jpg",
     gallery: [
-      "/images/ssadults.JPG", 
-      "/images/ssadults.JPG", 
-      "/images/ssadults.JPG"
-    ]
+      "/images/ministries/teens-1.jpg",
+      "/images/ministries/teens-2.jpg",
+      "/images/ministries/teens-3.jpg",
+    ],
   },
   {
     id: "4",
-    name: "Worship Ministry",
+    name: "Youth Ministry",
     description:
-      "Leading the congregation in heartfelt worship through music, instruments, and media, creating an atmosphere where people can encounter God’s presence.",
-    mission:
-      "To glorify God through excellence in music and service, preparing hearts to receive the Word of God.",
-    activities: [
-      "Sunday worship services",
-      "Weekly rehearsals and vocal training",
-      "Sound and media production",
-      "Special events and concerts",
-    ],
-    scripture: "Psalm 100:2 — Serve the LORD with gladness: come before his presence with singing.",
-    ageGroup: "All ages",
-    meetingTime: "Sundays 10:00 AM",
-    location: "Main Sanctuary",
-    leader: "Andrew Tsuma",
-    imageUrl: "/images/choir.JPG",
+      "The Youth Ministry provides a platform for young adults to connect, grow in faith, and serve together. They meet whenever planned, focusing on leadership, service, and equipping young people to live out their faith boldly.",
+    leader: "Pastor Andrew",
+    meetingTime: "Meetings as planned",
+    location: "Church Building",
     contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To empower young adults to grow spiritually, serve faithfully, and lead purposefully through fellowship, discipleship, and mission opportunities.",
+    activities: [
+      "Youth-led worship and Bible discussions",
+      "Community service projects",
+      "Outdoor retreats and bonding activities",
+      "Leadership and discipleship training",
+      "Music, drama, and event planning",
+    ],
+    scripture:
+      "“Even youths shall faint and be weary... but those who wait on the Lord shall renew their strength.” — Isaiah 40:30-31",
+    ageGroup: "youth",
+    imageUrl: "/images/ministries/youth-hero.jpg",
     gallery: [
-      "/images/choir.JPG", 
-      "/images/choir.JPG", 
-      "/images/choir.JPG"
-    ]
+      "/images/ministries/youth-1.jpg",
+      "/images/ministries/youth-2.jpg",
+      "/images/ministries/youth-3.jpg",
+    ],
   },
   {
     id: "5",
+    name: "Missions & Evangelism Ministry",
+    description:
+      "Empowering believers to share the Gospel and nurture a passion for mission work. We teach, mentor, and guide young adults who feel called to local and global evangelism.",
+    leader: "Pastor Jerry",
+    meetingTime: "Every Sunday, 10AM",
+    location: "Church Conference Hall",
+    contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To inspire and equip believers—especially young adults—to actively engage in evangelism and mission work, spreading the love and message of Christ both locally and beyond.",
+    activities: [
+      "Evangelism training and discipleship sessions",
+      "Community outreach and door-to-door evangelism",
+      "Missionary mentorship and prayer support",
+      "Organizing local and regional mission trips",
+      "Partnering with missionaries in the field",
+    ],
+    scripture: "“Go therefore and make disciples of all nations...” — Matthew 28:19",
+    ageGroup: "all ages",
+    imageUrl: "/images/ssadults.JPG",
+    gallery: [
+      "/images/ssadults-1.JPG",
+      "/images/ssadults-2.JPG",
+      "/images/ssadults-3.JPG",
+    ],
+  },
+  {
+    id: "6",
+    name: "Church Sunday School",
+    description:
+      "The Church Sunday School is a time of learning and fellowship for both youths and adults. It provides structured Bible study, discussion, and prayer, helping believers grow deeper in their understanding of Scripture.",
+    leader: "Pastor Andrew",
+    meetingTime: "Every Sunday, 9:00 AM – 10:00 AM",
+    location: "Main Auditorium",
+    contact: "info.noonkopirbbc@gmail.com",
+    mission:
+      "To teach the Word of God systematically, equipping both young and mature believers to grow in knowledge, faith, and service.",
+    activities: [
+      "Systematic Bible study classes",
+      "Interactive Q&A and group discussions",
+      "Scripture memorization challenges",
+      "Topical lessons on Christian living",
+      "Prayer and fellowship sessions",
+    ],
+    scripture:
+      "“Let the word of Christ dwell in you richly, teaching and admonishing one another in all wisdom...” — Colossians 3:16",
+    ageGroup: "All ages",
+    imageUrl: "/images/adults.JPG",
+    gallery: [
+      "/images/adults-1.JPG",
+      "/images/adults-2.JPG",
+      "/images/adults-3.JPG",
+    ],
+  },
+   {
+    id: "7",
     name: "Choir Ministry",
     description:
       "A dedicated team of singers who lift their voices in harmony to glorify God and inspire the congregation through special music and worship services.",
@@ -461,10 +524,10 @@ export const ministries = [
     contact: "info.noonkopirbbc@gmail.com",
     gallery: [
       "/images/choir1.JPG", 
-      "/images/choir1.JPG", 
+      "/images/choir.JPG", 
       "/images/choir1.JPG"
     ]
-  },
+  }
 ];
 
 

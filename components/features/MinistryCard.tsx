@@ -24,7 +24,7 @@ const MinistryCard = ({ ministry }: MinistryCardProps) => {
       
       {ministry.ageGroup && (
         <div className="absolute top-4 left-4">
-          <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm">
+          <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm capitalize">
             {ministry.ageGroup}
           </Badge>
         </div>

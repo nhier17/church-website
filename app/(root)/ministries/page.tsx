@@ -14,7 +14,7 @@ import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ageGroups = ['All Ages', 'Children', 'Youth', 'Adults'];
+const ageGroups = ['All Ages', 'Children', 'Pre-Teens', 'Teens', 'Youth', 'Adults'];
 const meetingDays = ['All Days', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const Ministries = () => {
