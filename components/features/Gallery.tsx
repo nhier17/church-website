@@ -4,9 +4,7 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Image from "next/image";
-import Link from "next/link";
 import { gallery } from "@/constants";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -38,32 +36,30 @@ const Gallery = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
       </div>
 
-      <BentoGrid>
-        {gallery.map((item, i) => (
-          <BentoGridItem
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {gallery.map((item) => (
+          <div
             key={item.id}
-            title={
-                <div className="absolute bottom-6 left-6 right-6"> 
-                <h3 className="text-white text-2xl font-bold mb-2">{item.alt}</h3>
-                 </div>
-            }
-            header={
-              <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-2xl">
-                <Image
-                  src={item.img}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
-            }
-            className={
-            i === 3 || i === 6 ? "md:col-span-2 relative group overflow-hidden rounded-2xl shadow-lg" : ""
-            }
-          />
+            className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
+          >
+            <div className="relative w-full h-72 sm:h-80">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+            </div>
+
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="text-white text-lg sm:text-2xl font-semibold drop-shadow-lg">
+                {item.alt}
+              </h3>
+            </div>
+          </div>
         ))}
-      </BentoGrid>
+      </div>
     </section>
   );
 };
