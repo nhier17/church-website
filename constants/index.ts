@@ -356,7 +356,7 @@ export const ministries = [
     scripture:
       "“Train up a child in the way he should go, and when he is old he will not depart from it.” — Proverbs 22:6",
     ageGroup: "children",
-    imageUrl: "/images/child.jpg",
+    imageUrl: "/images/primaryss.JPG",
     gallery: [
       "/images/primary1.JPG",
       "/images/primary2.jpeg",

@@ -3,7 +3,6 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { Footer } from "@/components/layout/Footer";
-import AppAnimations from "@/components/system/AppAnimations";
 
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
-        <AppAnimations />
         <Navbar />
         {children}
         <Toaster position="top-right" richColors />
