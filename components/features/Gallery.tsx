@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import { gallery } from "@/constants";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +39,8 @@ const Gallery = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {gallery.map((item) => (
-          <div
+          <Link
+            href={item.url}
             key={item.id}
             className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
           >
@@ -57,7 +59,7 @@ const Gallery = () => {
                 {item.alt}
               </h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

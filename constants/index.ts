@@ -358,9 +358,9 @@ export const ministries = [
     ageGroup: "children",
     imageUrl: "/images/child.jpg",
     gallery: [
-      "/images/ministries/primary-1.jpg",
-      "/images/ministries/primary-2.jpg",
-      "/images/ministries/primary-3.jpg",
+      "/images/primary1.JPG",
+      "/images/primary2.jpeg",
+      "/images/primary3.jpg",
     ],
   },
   {
@@ -386,9 +386,9 @@ export const ministries = [
     ageGroup: "pre-teens",
     imageUrl: "/images/kids.jpg",
     gallery: [
-      "/images/ministries/junior-1.jpg",
-      "/images/ministries/junior-2.jpg",
-      "/images/ministries/junior-3.jpg",
+      "/images/juniorss.JPG",
+      "/images/junior1.JPG",
+      "/images/kids.jpg",
     ],
   },
   {
@@ -497,9 +497,9 @@ export const ministries = [
     ageGroup: "All ages",
     imageUrl: "/images/adults.JPG",
     gallery: [
-      "/images/adults-1.JPG",
-      "/images/adults-2.JPG",
-      "/images/adults-3.JPG",
+      "/images/church.JPG",
+      "/images/church.JPG",
+      "/images/church.JPG",
     ],
   },
    {
@@ -701,15 +701,15 @@ export const joinMisssion = [
 export const gallery = [
   {
     id: 1,
-    img: '/images/about.JPG',
+    img: '/images/choir.JPG',
     alt: 'Choir',
-    url: '/ministries/5'
+    url: '/ministries/7'
   },
   {
     id: 2,
     img: '/images/adults.JPG',
     alt: 'Adults',
-    url: '/ministries/2'
+    url: '/ministries/6'
   },
   {
     id: 3,
@@ -719,7 +719,7 @@ export const gallery = [
   },
   {
     id: 4,
-    img: '/images/baptism.jpg',
+    img: '/images/bap.JPG',
     alt: 'Evangelism',
     url: '/about'
   },
@@ -727,7 +727,7 @@ export const gallery = [
     id: 5,
     img: '/images/edu.png',
     alt: 'Teens',
-    url: '/ministries/2'
+    url: '/ministries/3'
   },
   {
     id: 6,

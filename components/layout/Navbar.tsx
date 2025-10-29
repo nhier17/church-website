@@ -37,10 +37,10 @@ export function Navbar() {
               <div className="flex items-center justify-between h-20">
                 <Link href="/" className="flex items-center space-x-3">
                   <Image
-                    src="/images/nbbc.png"
+                    src="/images/log.png"
                     alt="Noonkopir Bible Baptist Church Logo"
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     className="object-cover rounded-lg"
                   />
                 </Link>

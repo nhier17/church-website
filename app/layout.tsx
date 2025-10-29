@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Noonkopir Bible Baptist Church",
   description: "A family that prays together, stands together",
   icons: {
-    icon: "images/nbbc.png",
+    icon: "images/log.png",
   },
 };
 
@@ -24,7 +24,6 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
-        {/* Global GSAP ScrollTrigger reveal animations */}
         <AppAnimations />
         <Navbar />
         {children}
