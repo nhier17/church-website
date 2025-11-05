@@ -29,7 +29,7 @@ export const EmailTemplate = ({ name, email, subject, message }: EmailTemplatePr
         <Container style={container}>
           <Section style={header}>
             <Img
-              src="https://www.noonkopirbbc.org/logo.png"
+              src={`${baseUrl}/log.png`}
               width="80"
               height="80"
               alt="Noonkopir Baptist Church Logo"
@@ -53,7 +53,7 @@ export const EmailTemplate = ({ name, email, subject, message }: EmailTemplatePr
           <Section style={footer}>
             <Text style={footerText}>
               This message was sent from the contact form on{" "}
-              <Link href="https://www.noonkopirbbc.org" style={footerLink}>
+              <Link href={`${baseUrl}`} style={footerLink}>
                 noonkopirbbc.org
               </Link>
             </Text>
