@@ -412,11 +412,11 @@ export const ministries = [
     scripture:
       "“Let no one despise your youth, but be an example to the believers...” — 1 Timothy 4:12",
     ageGroup: "teens",
-    imageUrl: "/images/ministries/teens-hero.jpg",
+    imageUrl: "/images/teens.JPG",
     gallery: [
-      "/images/ministries/teens-1.jpg",
-      "/images/ministries/teens-2.jpg",
-      "/images/ministries/teens-3.jpg",
+      "/images/teens1.JPG",
+      "/images/teens2.JPG",
+      "https://i.pinimg.com/1200x/a0/b9/88/a0b988fa8cac8ffd7b1e1c28d3b0c4c7.jpg",
     ],
   },
   {
@@ -440,11 +440,11 @@ export const ministries = [
     scripture:
       "“Even youths shall faint and be weary... but those who wait on the Lord shall renew their strength.” — Isaiah 40:30-31",
     ageGroup: "youth",
-    imageUrl: "/images/ministries/youth-hero.jpg",
+    imageUrl: "https://i.pinimg.com/736x/20/00/6a/20006a8ce295e4430de4cff30dfdbeec.jpg",
     gallery: [
-      "/images/ministries/youth-1.jpg",
-      "/images/ministries/youth-2.jpg",
-      "/images/ministries/youth-3.jpg",
+      "https://i.pinimg.com/1200x/cb/3b/80/cb3b8092dd52bc706f547978dd818928.jpg",
+      "https://i.pinimg.com/736x/8a/b8/90/8ab89026da05268402c8f70615b87cad.jpg",
+      "https://i.pinimg.com/736x/68/67/a9/6867a903bc80bed440b18ec85e8f5c91.jpg",
     ],
   },
   {

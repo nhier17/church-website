@@ -40,7 +40,7 @@ const EventsCard = ({ event }: EventCardProps) => {
           <Badge variant="outline" className={`font-semibold ${categoryColor}`}>
             {event.category}
           </Badge>
-          <Badge variant="default" className="flex items-center gap-1">
+          <Badge variant="default" className="flex items-center gap-1 bg-green-100">
             <Calendar className="h-3 w-3" />
             {formattedDate}
           </Badge>

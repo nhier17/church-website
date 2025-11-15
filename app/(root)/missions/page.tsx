@@ -222,9 +222,6 @@ const Missions = () => {
                 <p className="text-muted-foreground mb-6">
                   {mission.description}
                 </p>
-                <Button variant="outline" size="sm">
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
            ))}

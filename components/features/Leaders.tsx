@@ -40,7 +40,7 @@ useGSAP(() => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {leaders.slice(0, 2).map((leader,index) => (
-          <Card key={index} className="card-hover overflow-hidden p-0">
+          <Card key={index} className="leader-card group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-primary/5">
             <CardContent className="p-0">
               <div className="relative h-64 overflow-hidden">
                 <Image

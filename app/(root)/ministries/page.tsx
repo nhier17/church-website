@@ -90,7 +90,7 @@ const Ministries = () => {
                     <Badge
                       key={group}
                       variant={selectedAgeGroup === group ? "default" : "outline"}
-                      className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+                      className="cursor-pointer hover:bg-green-100 hover:text-primary-foreground transition-colors"
                       onClick={() => setSelectedAgeGroup(group)}
                     >
                       {group}
@@ -103,7 +103,7 @@ const Ministries = () => {
                     <Badge
                       key={day}
                       variant={selectedDay === day ? "default" : "outline"}
-                      className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+                      className="cursor-pointer hover:bg-green-100 hover:text-primary-foreground transition-colors"
                       onClick={() => setSelectedDay(day)}
                     >
                       {day}

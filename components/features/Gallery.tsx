@@ -37,12 +37,12 @@ const Gallery = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {gallery.map((item) => (
           <Link
             href={item.url}
             key={item.id}
-            className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500"
+            className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-500"
           >
             <div className="relative w-full h-72 sm:h-80">
               <Image

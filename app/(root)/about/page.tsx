@@ -143,7 +143,7 @@ const About = () => {
 
       <section ref={storyRef} className="section-padding relative">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 to-background" />
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-6xl mx-auto p-4">
           <div className="story-content text-center mb-16">
             <h2 className="heading-2 mb-6 bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
               Our Story
@@ -450,7 +450,7 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
         </div>
 
-        <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {leaders.map((leader, index) => (
             <Card key={index} className="leader-card group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-primary/5">
               <CardContent className="p-0">

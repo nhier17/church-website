@@ -27,14 +27,14 @@ const Events = () => {
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
           <div className="flex flex-wrap gap-4 items-center">
             <span className="text-sm font-medium">Filter by category:</span>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">
+            <Badge variant="outline" className="cursor-pointer hover:bg-green-100 hover:text-primary-foreground">
               All Events
             </Badge>
             {categories.map((category) => (
               <Badge 
                 key={category} 
                 variant="outline" 
-                className="cursor-pointer hover:bg-primary hover:text-primary-foreground capitalize"
+                className="cursor-pointer hover:bg-green-100 hover:text-primary-foreground capitalize"
               >
                 {category}
               </Badge>
@@ -100,22 +100,6 @@ const Events = () => {
       </section>
     )}
 
-    <section className="section-padding" data-animate="fade-up" data-delay="0.25">
-      <div className="text-center">
-        <h2 className="heading-2 mb-4">Stay Updated</h2>
-        <div className="w-24 h-1 mb-4 bg-gradient-to-r from-primary to-green-400 mx-auto rounded-full" />
-        <p className="text-large text-muted-foreground max-w-2xl mx-auto mb-8">
-          Add our events calendar to your phone or computer so you never miss 
-          an opportunity to connect and grow with our church family.
-        </p>
-        
-        <div className="max-w-md mx-auto">
-          <Button variant="outline" size="lg">
-            Email Notifications
-          </Button>
-        </div>
-      </div>
-    </section>
 
     <section className="section-padding" data-animate="fade-up" data-delay="0.3">
         <div className="text-center mb-12">
