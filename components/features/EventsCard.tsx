@@ -1,37 +1,28 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, MapPin } from "lucide-react";
-import { getCategoryColor } from "@/lib/utils";
+import { getCategoryColor, formatEventDate } from "@/lib/utils";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Link from "next/link";
 
 interface EventCardProps {
-    event: EventData;
+  event: EventData;
 }
 
 const EventsCard = ({ event }: EventCardProps) => {
-  const eventDate = new Date(event.date);
-  const formattedDate = eventDate.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-
+  const formattedDate = formatEventDate(event.date);
   const categoryColor = getCategoryColor(event.category);
 
   return (
-    <Card
-      className={`overflow-hidden shadow-md transition-transform hover:scale-[1.02] hover:shadow-xl relative p-0`}
-    >
+    <Card className="overflow-hidden shadow-md transition-transform hover:scale-[1.02] hover:shadow-xl relative p-0">
       {event.imageUrl && (
-        <div className="relative h-48 w-full">
+        <div className="relative h-56 w-full">
           <Image
             src={event.imageUrl}
             alt={event.title}
             fill
             className="object-cover"
           />
-          
         </div>
       )}
 
@@ -59,7 +50,7 @@ const EventsCard = ({ event }: EventCardProps) => {
           </span>
         </div>
 
-          <p className="text-muted-foreground text-sm line-clamp-3">
+        <p className="text-muted-foreground text-sm line-clamp-3">
           {event.description}
         </p>
       </CardContent>

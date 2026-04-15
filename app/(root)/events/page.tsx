@@ -3,17 +3,42 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Plus } from 'lucide-react';
 import { events } from '@/constants';
-
+import { getEventStartDate, getEventEndDate } from '@/lib/utils';
 
 const Events = () => {
-    const currentDate = new Date();
-    const upcomingEvents = events.filter(event => new Date(event.date) >= currentDate);
-    const pastEvents = events.filter(event => new Date(event.date) < currentDate);
-    const categories = [...new Set(events.map(event => event.category))];
-    
+  const currentDate = new Date();
+
+  // Normalize current date to ignore time
+  currentDate.setHours(0, 0, 0, 0);
+
+  const upcomingEvents = events.filter((event) => {
+    const endDate = getEventEndDate(event.date);
+    return endDate >= currentDate;
+  });
+
+  const pastEvents = events.filter((event) => {
+    const endDate = getEventEndDate(event.date);
+    return endDate < currentDate;
+  });
+
+  // Optional: Sort events
+  upcomingEvents.sort(
+    (a, b) =>
+      getEventStartDate(a.date).getTime() -
+      getEventStartDate(b.date).getTime()
+  );
+
+  pastEvents.sort(
+    (a, b) =>
+      getEventStartDate(b.date).getTime() -
+      getEventStartDate(a.date).getTime()
+  );
+
+  const categories = [...new Set(events.map(event => event.category))];
+
   return (
     <div className="pt-20">
-    <section className="section-padding bg-green-100 text-white" data-animate="fade-up">
+          <section className="section-padding bg-green-100 text-white" data-animate="fade-up">
       <div className="text-center container-custom">
         <h1 className="heading-2 mb-6">Upcoming Events</h1>
         <p className="text-large max-w-3xl mx-auto text-primary-foreground/90">
@@ -117,8 +142,8 @@ const Events = () => {
           </Button>
         </div>
     </section>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Events
+export default Events;

@@ -82,27 +82,29 @@ export const addressInfo = [
 ];
 
 export const events: EventData[] = [
-    {
+      {
         id: 1,
-        title: 'Kids Retreat',
-        date: '2025-08-22',
-        time: '7:00 PM',
-        location: 'Church Grounds',
-        description: 'A fun-filled weekend for kids to tour the giraffe center ',
-        category: 'Teens',
-        imageUrl: '/images/kids.jpg',
+        title: 'Leaders Forum',
+        date: '2026-04-17 - 2026-04-19',
+        time: '7:00 AM',
+        location: 'Maseno Baptist Church',
+        description:
+          'An inspiring forum designed to equip and empower youth leaders through biblical teaching, mentorship, and interactive discussions.',
+        category: 'Youth',
+        imageUrl: '/images/forum.jpeg',
         registrationUrl: '/contact',
       },
       {
         id: 2,
-        title: 'Choir Practice',
-        date: '2025-08-24',
-        time: '1:00 PM - 3:00 PM',
-        location: 'Main Building',
-        description: 'Choir practice for the upcoming worship service.',
-        category: 'Worship',
-        imageUrl: '/images/choir.JPG',
-        registrationUrl: '/contact', 
+        title: 'Youth Camp',
+        date: '2026-04-20 - 2026-04-25',
+        time: '9:00 AM',
+        location: 'Ruiru Bible Baptist Church',
+        description:
+          'A transformative youth camp focused on spiritual growth, fellowship, worship, and engaging outdoor activities.',
+        category: 'Youth',
+        imageUrl: '/images/youthcamp.jpeg',
+        registrationUrl: '/contact',
       },
       {
         id: 3,
